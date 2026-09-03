@@ -1,4 +1,4 @@
-/* WEB1C mobile hero polish */
+/* WEB1D mobile rhythm polish */
 @media (max-width:620px){
   .hero-visual{height:420px;margin-top:4px;overflow:hidden;border-radius:28px}
   .field-card{top:52px;width:78%;height:310px}
@@ -6,6 +6,8 @@
   .phone-frame{transform:rotate(-.5deg)}
   .chip-field{right:2%;top:28px}
   .chip-local{right:0;bottom:44px}
+  .proof-strip{margin-bottom:14px}
+  .journey-section{padding-top:36px}
   body[dir="rtl"] .hero-phone{left:auto;right:8px}
   body[dir="rtl"] .chip-field{right:auto;left:2%}
   body[dir="rtl"] .chip-local{right:auto;left:0}
