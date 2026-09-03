@@ -1,4 +1,4 @@
-/* WEB1D mobile rhythm polish */
+/* WEB1E mobile campaign visual + rhythm polish */
 @media (max-width:620px){
   .hero-visual{height:420px;margin-top:4px;overflow:hidden;border-radius:28px}
   .field-card{top:52px;width:78%;height:310px}
@@ -8,13 +8,22 @@
   .chip-local{right:0;bottom:44px}
   .proof-strip{margin-bottom:14px}
   .journey-section{padding-top:36px}
+
+  /* French/LTR mobile: replace only the visual block with the verified campaign artwork. */
+  body:not([dir="rtl"]) .hero-visual{
+    background:#eef4ef url('/assets/epsiq-campaign-hero.webp') center center/cover no-repeat;
+    box-shadow:0 20px 48px rgba(5,55,38,.10);
+  }
+  body:not([dir="rtl"]) .hero-visual .field-card,
+  body:not([dir="rtl"]) .hero-visual .hero-phone,
+  body:not([dir="rtl"]) .hero-visual .hero-chip{display:none}
+
   body[dir="rtl"] .hero-phone{left:auto;right:8px}
   body[dir="rtl"] .chip-field{right:auto;left:2%}
   body[dir="rtl"] .chip-local{right:auto;left:0}
 }
 
-/* WEB1E verified campaign hero: desktop French only.
-   Mobile and RTL keep the canonical live HTML hero and real app screenshot. */
+/* Desktop French uses the same verified campaign artwork as the full hero. */
 @media (min-width:901px){
   html[dir="ltr"] .hero{
     display:block;
