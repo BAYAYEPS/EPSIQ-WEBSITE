@@ -43,24 +43,6 @@
     }
   ];
 
-  async function loadChunkedWebp(prefix, count, selector) {
-    try {
-      const parts = await Promise.all(
-        Array.from({length: count}, (_, i) => {
-          const part = String(i).padStart(2, '0');
-          return fetch(`/assets/hq/${prefix}-${part}.b64`, {cache:'force-cache'}).then(response => {
-            if (!response.ok) throw new Error(`Missing image chunk ${part}`);
-            return response.text();
-          });
-        })
-      );
-      const image = document.querySelector(selector);
-      if (image) image.src = `data:image/webp;base64,${parts.join('')}`;
-    } catch (_) {
-      // Keep the packaged low-resolution image as a safe fallback.
-    }
-  }
-
   function renderJourney(index) {
     const data = journey[index]?.[lang];
     if (!data) return;
@@ -160,5 +142,4 @@
   }
 
   translate(lang);
-  loadChunkedWebp('home', 9, '.hero-phone img');
 })();
