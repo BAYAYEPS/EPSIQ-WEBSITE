@@ -1,9 +1,4 @@
 (() => {
-  const mobileStyles = document.createElement('link');
-  mobileStyles.rel = 'stylesheet';
-  mobileStyles.href = '/mobile-final.css';
-  document.head.appendChild(mobileStyles);
-
   const root = document.documentElement;
   const body = document.body;
   const langToggle = document.getElementById('languageToggle');
