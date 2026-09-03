@@ -1,109 +1,134 @@
 (() => {
-  ['/hero-media.css', '/brand.css', '/product-media.css'].forEach((href) => {
-    const stylesheet = document.createElement('link');
-    stylesheet.rel = 'stylesheet';
-    stylesheet.href = href;
-    document.head.appendChild(stylesheet);
-  });
-
   const root = document.documentElement;
   const body = document.body;
-  const languageToggle = document.getElementById('languageToggle');
-  let currentLang = localStorage.getItem('epsiq-language') || 'fr';
+  const langToggle = document.getElementById('languageToggle');
+  let lang = localStorage.getItem('epsiq-language') || 'fr';
 
-  const journeyCopy = [
-    { fr: ['Planification annuelle', 'Organiser les cycles de l’année par niveau avant de passer à l’exécution.'], ar: ['التخطيط السنوي', 'تنظيم حلقات السنة حسب المستوى قبل الانتقال إلى التنفيذ.'] },
-    { fr: ['Diagnostic S1', 'Préparer la fiche S1 et la grille d’observation, puis analyser les constats du groupe.'], ar: ['تشخيص S1', 'تحضير جذاذة S1 وشبكة الملاحظة ثم تحليل نتائج المجموعة.'] },
-    { fr: ['Projet du cycle', 'Transformer le diagnostic validé en priorités et en projet pédagogique partagé.'], ar: ['مشروع الحلقة', 'تحويل التشخيص المعتمد إلى أولويات ومشروع بيداغوجي مشترك.'] },
-    { fr: ['Fiches de séance', 'Préparer les situations et les fiches à l’avance sans déclencher l’exécution terrain.'], ar: ['جذاذات الحصص', 'تحضير الوضعيات والجذاذات مسبقاً دون بدء التنفيذ الميداني.'] },
-    { fr: ['Suivi terrain', 'Suivre uniquement la séance réellement exécutée pour la classe sélectionnée.'], ar: ['التتبع الميداني', 'تتبع الحصة المنفذة فعلياً فقط للقسم المحدد.'] },
-    { fr: ['Évaluation finale', 'Préparer la dernière séance et sa grille avant de conduire l’évaluation finale.'], ar: ['التقويم النهائي', 'تحضير الحصة الأخيرة وشبكتها قبل تنفيذ التقويم النهائي.'] },
-    { fr: ['Bilan & export', 'Vérifier les éléments manquants, valider les résultats puis exporter et clôturer.'], ar: ['الحصيلة والتصدير', 'التحقق من العناصر الناقصة واعتماد النتائج ثم التصدير والإغلاق.'] }
+  const journey = [
+    {fr:['Planification annuelle','Organiser les cycles de l’année par niveau avant l’exécution.'], ar:['التخطيط السنوي','تنظيم حلقات السنة حسب المستوى قبل التنفيذ.']},
+    {fr:['Diagnostic S1','Préparer la fiche S1 et la grille d’observation, puis analyser les constats.'], ar:['تشخيص S1','تحضير جذاذة S1 وشبكة الملاحظة ثم تحليل النتائج.']},
+    {fr:['Projet du cycle','Transformer le diagnostic validé en priorités et en projet pédagogique partagé.'], ar:['مشروع الحلقة','تحويل التشخيص المعتمد إلى أولويات ومشروع بيداغوجي مشترك.']},
+    {fr:['Fiches de séance','Préparer les situations à l’avance sans déclencher l’exécution terrain.'], ar:['جذاذات الحصص','تحضير الوضعيات مسبقاً دون بدء التنفيذ الميداني.']},
+    {fr:['Suivi terrain','Suivre la séance réellement exécutée pour la classe sélectionnée.'], ar:['التتبع الميداني','تتبع الحصة المنفذة فعلياً للقسم المحدد.']},
+    {fr:['Évaluation finale','Préparer la dernière séance et sa grille avant l’évaluation finale.'], ar:['التقويم النهائي','تحضير الحصة الأخيرة وشبكتها قبل التقويم النهائي.']},
+    {fr:['Bilan & export','Valider les résultats, exporter puis clôturer l’exécution pour la classe.'], ar:['الحصيلة والتصدير','اعتماد النتائج ثم التصدير وإغلاق التنفيذ للقسم.']}
   ];
 
-  const journeySteps = [...document.querySelectorAll('.journey-step')];
-  const journeyProgress = document.querySelector('.journey-progress span');
-  const journeyNumber = document.getElementById('journeyNumber');
-  const journeyTitle = document.getElementById('journeyTitle');
-  const journeyText = document.getElementById('journeyText');
+  const products = [
+    {
+      image:'/assets/epsiq-diagnostic.webp',
+      alt:{fr:'Capture réelle de la fiche diagnostique S1 dans EPSIQ', ar:'لقطة حقيقية لجذاذة التشخيص S1 في EPSIQ'},
+      title:{fr:'Préparer la séance diagnostique', ar:'تحضير الحصة التشخيصية'},
+      text:{fr:'La fiche S1 et l’organisation de l’observation sont préparées avant le terrain, sans confondre préparation et exécution.', ar:'تُحضّر جذاذة S1 وتنظيم الملاحظة قبل الميدان، دون خلط التحضير بالتنفيذ.'},
+      tags:{fr:['Fiche S1','Observation','Préparation'],ar:['جذاذة S1','الملاحظة','التحضير']}
+    },
+    {
+      image:'/assets/epsiq-bilan.webp',
+      alt:{fr:'Capture réelle du bilan et de l’état du cycle dans EPSIQ', ar:'لقطة حقيقية للحصيلة وحالة الحلقة في EPSIQ'},
+      title:{fr:'Voir l’état réel du cycle', ar:'معرفة الحالة الفعلية للحلقة'},
+      text:{fr:'Diagnostic, suivi, évaluation et export restent lisibles : l’enseignant voit immédiatement ce qui est terminé et ce qui attend.', ar:'يبقى التشخيص والتتبع والتقويم والتصدير واضحاً، فيعرف الأستاذ فوراً ما تم وما يزال منتظراً.'},
+      tags:{fr:['État du cycle','Priorités','Classe'],ar:['حالة الحلقة','الأولويات','القسم']}
+    },
+    {
+      image:'/assets/epsiq-results.webp',
+      alt:{fr:'Capture réelle des résultats sur 20 et des exports EPSIQ', ar:'لقطة حقيقية للنتائج على 20 والتصدير في EPSIQ'},
+      title:{fr:'Finaliser puis exporter', ar:'الإنهاء ثم التصدير'},
+      text:{fr:'Les résultats sont vérifiés avant l’export PDF ou la copie Massar : la fin du cycle reste un flux de décision, pas une nouvelle saisie.', ar:'تُراجع النتائج قبل تصدير PDF أو النسخ إلى مسار، فتظل نهاية الحلقة مسار قرار لا إدخالاً جديداً للبيانات.'},
+      tags:{fr:['Résultats /20','PDF','Massar'],ar:['النتائج /20','PDF','مسار']}
+    }
+  ];
 
-  function renderJourney(index) {
-    const item = journeyCopy[index]?.[currentLang];
-    if (!item) return;
-    journeySteps.forEach((step, i) => step.classList.toggle('is-active', i === index));
-    if (journeyProgress) journeyProgress.style.width = `${(index / Math.max(1, journeySteps.length - 1)) * 100}%`;
-    if (journeyNumber) journeyNumber.textContent = String(index + 1).padStart(2, '0');
-    if (journeyTitle) journeyTitle.textContent = item[0];
-    if (journeyText) journeyText.textContent = item[1];
-  }
-
-  function applyLanguage(lang) {
-    currentLang = lang;
+  function translate(langCode){
+    lang = langCode;
     localStorage.setItem('epsiq-language', lang);
     root.lang = lang;
     root.dir = lang === 'ar' ? 'rtl' : 'ltr';
     body.dir = root.dir;
-    document.querySelectorAll('[data-fr][data-ar]').forEach((node) => { node.textContent = node.dataset[lang]; });
-    if (languageToggle) {
-      const spans = languageToggle.querySelectorAll('span');
-      spans.forEach((span) => span.classList.remove('active-lang'));
-      (lang === 'fr' ? spans[0] : spans[1])?.classList.add('active-lang');
-      languageToggle.setAttribute('aria-label', lang === 'fr' ? 'Passer en arabe' : 'التبديل إلى الفرنسية');
+    document.querySelectorAll('[data-fr][data-ar]').forEach(el => { el.textContent = el.dataset[lang]; });
+    if (langToggle){
+      const spans = langToggle.querySelectorAll('span');
+      spans.forEach(s => s.classList.remove('is-active'));
+      (lang === 'fr' ? spans[0] : spans[1])?.classList.add('is-active');
+      langToggle.setAttribute('aria-label', lang === 'fr' ? 'Passer en arabe' : 'التبديل إلى الفرنسية');
     }
     const activeJourney = document.querySelector('.journey-step.is-active');
-    if (activeJourney) renderJourney(Number(activeJourney.dataset.step));
+    renderJourney(Number(activeJourney?.dataset.step || 0));
+    const activeProduct = document.querySelector('.product-tab.is-active');
+    renderProduct(Number(activeProduct?.dataset.product || 0));
   }
 
-  languageToggle?.addEventListener('click', () => applyLanguage(currentLang === 'fr' ? 'ar' : 'fr'));
-  journeySteps.forEach((step) => step.addEventListener('click', () => renderJourney(Number(step.dataset.step))));
-
-  const slides = [...document.querySelectorAll('.showcase-card')];
-  const dots = [...document.querySelectorAll('.carousel-dots button')];
-  const prev = document.getElementById('prevSlide');
-  const next = document.getElementById('nextSlide');
-  let slideIndex = 0;
-  function showSlide(index) {
-    if (!slides.length) return;
-    slideIndex = (index + slides.length) % slides.length;
-    slides.forEach((slide, i) => slide.classList.toggle('is-current', i === slideIndex));
-    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === slideIndex));
-  }
-  prev?.addEventListener('click', () => showSlide(slideIndex - 1));
-  next?.addEventListener('click', () => showSlide(slideIndex + 1));
-  dots.forEach((dot) => dot.addEventListener('click', () => showSlide(Number(dot.dataset.go))));
-
-  const revealNodes = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
-      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
-    }), { threshold: 0.12 });
-    revealNodes.forEach((node) => observer.observe(node));
-  } else revealNodes.forEach((node) => node.classList.add('is-visible'));
-
-  const tilt = document.querySelector('[data-tilt] .phone-shell');
-  const tiltHost = document.querySelector('[data-tilt]');
-  if (tilt && tiltHost && window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    tiltHost.addEventListener('pointermove', (event) => {
-      const rect = tiltHost.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - 0.5;
-      const y = (event.clientY - rect.top) / rect.height - 0.5;
-      tilt.style.transform = `rotate(-5deg) rotateY(${x * 7}deg) rotateX(${y * -6}deg)`;
+  function renderJourney(index){
+    const data = journey[index]?.[lang];
+    if (!data) return;
+    document.querySelectorAll('.journey-step').forEach((step,i) => {
+      const active = i === index;
+      step.classList.toggle('is-active', active);
+      step.setAttribute('aria-selected', String(active));
     });
-    tiltHost.addEventListener('pointerleave', () => { tilt.style.transform = 'rotate(-5deg)'; });
+    document.getElementById('journeyNumber').textContent = String(index+1).padStart(2,'0');
+    document.getElementById('journeyTitle').textContent = data[0];
+    document.getElementById('journeyText').textContent = data[1];
   }
 
-  const copyHash = document.getElementById('copyHash');
-  copyHash?.addEventListener('click', async () => {
+  function renderProduct(index){
+    const data = products[index];
+    if (!data) return;
+    document.querySelectorAll('.product-tab').forEach((tab,i) => {
+      const active = i === index;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-selected', String(active));
+    });
+    document.getElementById('productIndex').textContent = `0${index+1} / 03`;
+    const title = document.getElementById('productTitle');
+    const text = document.getElementById('productText');
+    const image = document.getElementById('productImage');
+    title.textContent = data.title[lang];
+    text.textContent = data.text[lang];
+    image.src = data.image;
+    image.alt = data.alt[lang];
+    const tags = document.getElementById('productTags');
+    tags.innerHTML = '';
+    data.tags[lang].forEach(label => {
+      const span = document.createElement('span');
+      span.textContent = label;
+      tags.appendChild(span);
+    });
+  }
+
+  langToggle?.addEventListener('click', () => translate(lang === 'fr' ? 'ar' : 'fr'));
+  document.querySelectorAll('.journey-step').forEach(step => step.addEventListener('click', () => renderJourney(Number(step.dataset.step))));
+  document.querySelectorAll('.product-tab').forEach(tab => tab.addEventListener('click', () => renderProduct(Number(tab.dataset.product))));
+
+  document.getElementById('copyHash')?.addEventListener('click', async (event) => {
     const hash = document.getElementById('apkHash')?.textContent?.trim();
     if (!hash) return;
-    try {
+    try{
       await navigator.clipboard.writeText(hash);
-      copyHash.textContent = currentLang === 'fr' ? 'Copié ✓' : 'تم النسخ ✓';
-      setTimeout(() => { copyHash.textContent = currentLang === 'fr' ? 'Copier' : 'نسخ'; }, 1500);
-    } catch (_) { window.prompt(currentLang === 'fr' ? 'Copiez le SHA-256 :' : 'انسخ SHA-256:', hash); }
+      event.currentTarget.textContent = lang === 'fr' ? 'Copié ✓' : 'تم النسخ ✓';
+      setTimeout(() => { event.currentTarget.textContent = lang === 'fr' ? 'Copier' : 'نسخ'; }, 1400);
+    }catch(_){
+      window.prompt(lang === 'fr' ? 'Copiez le SHA-256 :' : 'انسخ SHA-256:', hash);
+    }
   });
 
-  applyLanguage(currentLang);
-  renderJourney(0);
-  showSlide(0);
+  const params = new URLSearchParams(location.search);
+  const source = params.get('source') || params.get('utm_source');
+  if (source) sessionStorage.setItem('epsiq_source', source);
+
+  const reveal = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12});
+    reveal.forEach(el => observer.observe(el));
+  } else {
+    reveal.forEach(el => el.classList.add('is-visible'));
+  }
+
+  translate(lang);
 })();
