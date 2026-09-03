@@ -1,8 +1,10 @@
 (() => {
-  const mediaStyles = document.createElement('link');
-  mediaStyles.rel = 'stylesheet';
-  mediaStyles.href = '/hero-media.css';
-  document.head.appendChild(mediaStyles);
+  ['/hero-media.css', '/brand.css'].forEach((href) => {
+    const stylesheet = document.createElement('link');
+    stylesheet.rel = 'stylesheet';
+    stylesheet.href = href;
+    document.head.appendChild(stylesheet);
+  });
 
   const root = document.documentElement;
   const body = document.body;
