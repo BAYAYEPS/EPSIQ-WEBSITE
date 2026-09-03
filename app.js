@@ -43,6 +43,23 @@
     }
   ];
 
+  function insertPlayCompatibilityNote() {
+    if (document.getElementById('playCompatibilityNote')) return;
+    const installBlock = document.querySelector('.install-block');
+    if (!installBlock) return;
+
+    const note = document.createElement('aside');
+    note.id = 'playCompatibilityNote';
+    note.className = 'lycee-note reveal';
+    note.innerHTML = `
+      <span class="status-dot" aria-hidden="true"></span>
+      <div>
+        <strong data-fr="Déjà installé via Google Play ?" data-ar="هل سبق تثبيت EPSIQ من Google Play؟">Déjà installé via Google Play ?</strong>
+        <p data-fr="Ne désinstallez pas l’application et n’effacez pas ses données pour installer cet APK. La compatibilité de signature avec l’ancienne installation Play n’est pas confirmée ; cet APK est destiné aux nouvelles installations tant que cette compatibilité n’est pas établie." data-ar="لا تحذف التطبيق ولا تمسح بياناته من أجل تثبيت ملف APK هذا. توافق التوقيع مع النسخة القديمة المثبتة من Google Play غير مؤكد؛ لذلك هذا الملف مخصص للتثبيتات الجديدة إلى أن يتم إثبات التوافق.">Ne désinstallez pas l’application et n’effacez pas ses données pour installer cet APK. La compatibilité de signature avec l’ancienne installation Play n’est pas confirmée ; cet APK est destiné aux nouvelles installations tant que cette compatibilité n’est pas établie.</p>
+      </div>`;
+    installBlock.insertAdjacentElement('afterend', note);
+  }
+
   function renderJourney(index) {
     const data = journey[index]?.[lang];
     if (!data) return;
@@ -125,6 +142,8 @@
   const params = new URLSearchParams(location.search);
   const source = params.get('source') || params.get('utm_source');
   if (source) sessionStorage.setItem('epsiq_source', source);
+
+  insertPlayCompatibilityNote();
 
   const reveal = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
