@@ -41,3 +41,10 @@ const source = params.get('source') || params.get('utm_source');
 if (source) {
   sessionStorage.setItem('epsiq-download-source', source.slice(0, 80));
 }
+
+// Cloudflare Web Analytics (privacy-first aggregate analytics).
+const analyticsBeacon = document.createElement('script');
+analyticsBeacon.type = 'module';
+analyticsBeacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+analyticsBeacon.dataset.cfBeacon = '{"token":"16625f5d018844f89cc67030988c2cba"}';
+document.head.appendChild(analyticsBeacon);
