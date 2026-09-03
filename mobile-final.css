@@ -1,7 +1,7 @@
-/* WEB1E mobile visual + rhythm polish */
+/* WEB1D mobile rhythm polish */
 @media (max-width:620px){
   .hero-visual{height:420px;margin-top:4px;overflow:hidden;border-radius:28px}
-  .field-card{top:52px;width:78%;height:310px;border-radius:27px;background-image:linear-gradient(90deg,rgba(4,47,35,.08),rgba(4,47,35,.02)),url('/assets/epsiq-mobile-field.webp')!important;background-size:cover!important;background-position:center 22%!important}
+  .field-card{top:52px;width:78%;height:310px}
   .hero-phone{width:174px;top:28px;left:8px;filter:drop-shadow(0 20px 24px rgba(4,35,25,.18))}
   .phone-frame{transform:rotate(-.5deg)}
   .chip-field{right:2%;top:28px}
@@ -11,23 +11,4 @@
   body[dir="rtl"] .hero-phone{left:auto;right:8px}
   body[dir="rtl"] .chip-field{right:auto;left:2%}
   body[dir="rtl"] .chip-local{right:auto;left:0}
-}
-
-/* Desktop French uses the verified campaign artwork as the full hero. */
-@media (min-width:901px){
-  html[dir="ltr"] .hero{
-    display:block;
-    position:relative;
-    max-width:1180px;
-    aspect-ratio:16/9;
-    min-height:0;
-    margin:18px auto 30px;
-    padding:0;
-    border-radius:32px;
-    overflow:hidden;
-    background:#eef3ee url('/assets/epsiq-campaign-hero.webp') center/cover no-repeat;
-    box-shadow:0 26px 72px rgba(5,55,38,.13);
-  }
-  html[dir="ltr"] .hero-copy,
-  html[dir="ltr"] .hero-visual{display:none}
 }
