@@ -1,64 +1,23 @@
 (() => {
+  const mediaStyles = document.createElement('link');
+  mediaStyles.rel = 'stylesheet';
+  mediaStyles.href = '/hero-media.css';
+  document.head.appendChild(mediaStyles);
+
   const root = document.documentElement;
   const body = document.body;
   const languageToggle = document.getElementById('languageToggle');
   let currentLang = localStorage.getItem('epsiq-language') || 'fr';
 
   const journeyCopy = [
-    {
-      fr: ['Planification annuelle', 'Organiser les cycles de l’année par niveau avant de passer à l’exécution.'],
-      ar: ['التخطيط السنوي', 'تنظيم حلقات السنة حسب المستوى قبل الانتقال إلى التنفيذ.']
-    },
-    {
-      fr: ['Diagnostic S1', 'Préparer la fiche S1 et la grille d’observation, puis analyser les constats du groupe.'],
-      ar: ['تشخيص S1', 'تحضير جذاذة S1 وشبكة الملاحظة ثم تحليل نتائج المجموعة.']
-    },
-    {
-      fr: ['Projet du cycle', 'Transformer le diagnostic validé en priorités et en projet pédagogique partagé.'],
-      ar: ['مشروع الحلقة', 'تحويل التشخيص المعتمد إلى أولويات ومشروع بيداغوجي مشترك.']
-    },
-    {
-      fr: ['Fiches de séance', 'Préparer les situations et les fiches à l’avance sans déclencher l’exécution terrain.'],
-      ar: ['جذاذات الحصص', 'تحضير الوضعيات والجذاذات مسبقاً دون بدء التنفيذ الميداني.']
-    },
-    {
-      fr: ['Suivi terrain', 'Suivre uniquement la séance réellement exécutée pour la classe sélectionnée.'],
-      ar: ['التتبع الميداني', 'تتبع الحصة المنفذة فعلياً فقط للقسم المحدد.']
-    },
-    {
-      fr: ['Évaluation finale', 'Préparer la dernière séance et sa grille avant de conduire l’évaluation finale.'],
-      ar: ['التقويم النهائي', 'تحضير الحصة الأخيرة وشبكتها قبل تنفيذ التقويم النهائي.']
-    },
-    {
-      fr: ['Bilan & export', 'Vérifier les éléments manquants, valider les résultats puis exporter et clôturer.'],
-      ar: ['الحصيلة والتصدير', 'التحقق من العناصر الناقصة واعتماد النتائج ثم التصدير والإغلاق.']
-    }
+    { fr: ['Planification annuelle', 'Organiser les cycles de l’année par niveau avant de passer à l’exécution.'], ar: ['التخطيط السنوي', 'تنظيم حلقات السنة حسب المستوى قبل الانتقال إلى التنفيذ.'] },
+    { fr: ['Diagnostic S1', 'Préparer la fiche S1 et la grille d’observation, puis analyser les constats du groupe.'], ar: ['تشخيص S1', 'تحضير جذاذة S1 وشبكة الملاحظة ثم تحليل نتائج المجموعة.'] },
+    { fr: ['Projet du cycle', 'Transformer le diagnostic validé en priorités et en projet pédagogique partagé.'], ar: ['مشروع الحلقة', 'تحويل التشخيص المعتمد إلى أولويات ومشروع بيداغوجي مشترك.'] },
+    { fr: ['Fiches de séance', 'Préparer les situations et les fiches à l’avance sans déclencher l’exécution terrain.'], ar: ['جذاذات الحصص', 'تحضير الوضعيات والجذاذات مسبقاً دون بدء التنفيذ الميداني.'] },
+    { fr: ['Suivi terrain', 'Suivre uniquement la séance réellement exécutée pour la classe sélectionnée.'], ar: ['التتبع الميداني', 'تتبع الحصة المنفذة فعلياً فقط للقسم المحدد.'] },
+    { fr: ['Évaluation finale', 'Préparer la dernière séance et sa grille avant de conduire l’évaluation finale.'], ar: ['التقويم النهائي', 'تحضير الحصة الأخيرة وشبكتها قبل تنفيذ التقويم النهائي.'] },
+    { fr: ['Bilan & export', 'Vérifier les éléments manquants, valider les résultats puis exporter et clôturer.'], ar: ['الحصيلة والتصدير', 'التحقق من العناصر الناقصة واعتماد النتائج ثم التصدير والإغلاق.'] }
   ];
-
-  function applyLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem('epsiq-language', lang);
-    root.lang = lang;
-    root.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    body.dir = root.dir;
-
-    document.querySelectorAll('[data-fr][data-ar]').forEach((node) => {
-      node.textContent = node.dataset[lang];
-    });
-
-    if (languageToggle) {
-      const spans = languageToggle.querySelectorAll('span');
-      spans.forEach((span) => span.classList.remove('active-lang'));
-      if (lang === 'fr') spans[0]?.classList.add('active-lang');
-      else spans[1]?.classList.add('active-lang');
-      languageToggle.setAttribute('aria-label', lang === 'fr' ? 'Passer en arabe' : 'التبديل إلى الفرنسية');
-    }
-
-    const activeJourney = document.querySelector('.journey-step.is-active');
-    if (activeJourney) renderJourney(Number(activeJourney.dataset.step));
-  }
-
-  languageToggle?.addEventListener('click', () => applyLanguage(currentLang === 'fr' ? 'ar' : 'fr'));
 
   const journeySteps = [...document.querySelectorAll('.journey-step')];
   const journeyProgress = document.querySelector('.journey-progress span');
@@ -76,6 +35,24 @@
     if (journeyText) journeyText.textContent = item[1];
   }
 
+  function applyLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('epsiq-language', lang);
+    root.lang = lang;
+    root.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    body.dir = root.dir;
+    document.querySelectorAll('[data-fr][data-ar]').forEach((node) => { node.textContent = node.dataset[lang]; });
+    if (languageToggle) {
+      const spans = languageToggle.querySelectorAll('span');
+      spans.forEach((span) => span.classList.remove('active-lang'));
+      (lang === 'fr' ? spans[0] : spans[1])?.classList.add('active-lang');
+      languageToggle.setAttribute('aria-label', lang === 'fr' ? 'Passer en arabe' : 'التبديل إلى الفرنسية');
+    }
+    const activeJourney = document.querySelector('.journey-step.is-active');
+    if (activeJourney) renderJourney(Number(activeJourney.dataset.step));
+  }
+
+  languageToggle?.addEventListener('click', () => applyLanguage(currentLang === 'fr' ? 'ar' : 'fr'));
   journeySteps.forEach((step) => step.addEventListener('click', () => renderJourney(Number(step.dataset.step))));
 
   const slides = [...document.querySelectorAll('.showcase-card')];
@@ -83,32 +60,23 @@
   const prev = document.getElementById('prevSlide');
   const next = document.getElementById('nextSlide');
   let slideIndex = 0;
-
   function showSlide(index) {
     if (!slides.length) return;
     slideIndex = (index + slides.length) % slides.length;
     slides.forEach((slide, i) => slide.classList.toggle('is-current', i === slideIndex));
     dots.forEach((dot, i) => dot.classList.toggle('is-active', i === slideIndex));
   }
-
   prev?.addEventListener('click', () => showSlide(slideIndex - 1));
   next?.addEventListener('click', () => showSlide(slideIndex + 1));
   dots.forEach((dot) => dot.addEventListener('click', () => showSlide(Number(dot.dataset.go))));
 
   const revealNodes = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+    }), { threshold: 0.12 });
     revealNodes.forEach((node) => observer.observe(node));
-  } else {
-    revealNodes.forEach((node) => node.classList.add('is-visible'));
-  }
+  } else revealNodes.forEach((node) => node.classList.add('is-visible'));
 
   const tilt = document.querySelector('[data-tilt] .phone-shell');
   const tiltHost = document.querySelector('[data-tilt]');
@@ -128,13 +96,9 @@
     if (!hash) return;
     try {
       await navigator.clipboard.writeText(hash);
-      const originalFr = 'Copier';
-      const originalAr = 'نسخ';
       copyHash.textContent = currentLang === 'fr' ? 'Copié ✓' : 'تم النسخ ✓';
-      setTimeout(() => { copyHash.textContent = currentLang === 'fr' ? originalFr : originalAr; }, 1500);
-    } catch (_) {
-      window.prompt(currentLang === 'fr' ? 'Copiez le SHA-256 :' : 'انسخ SHA-256:', hash);
-    }
+      setTimeout(() => { copyHash.textContent = currentLang === 'fr' ? 'Copier' : 'نسخ'; }, 1500);
+    } catch (_) { window.prompt(currentLang === 'fr' ? 'Copiez le SHA-256 :' : 'انسخ SHA-256:', hash); }
   });
 
   applyLanguage(currentLang);
