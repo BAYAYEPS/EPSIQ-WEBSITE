@@ -1,0 +1,12 @@
+/* WEB1B final mobile containment fix */
+@media (max-width:620px){
+  .hero-visual{height:460px;margin-top:10px;overflow:hidden;border-radius:28px}
+  .field-card{top:58px;width:80%;height:330px}
+  .hero-phone{width:185px;top:36px;left:8px;filter:drop-shadow(0 20px 24px rgba(4,35,25,.18))}
+  .phone-frame{transform:rotate(-.5deg)}
+  .chip-field{right:2%;top:34px}
+  .chip-local{right:0;bottom:54px}
+  body[dir="rtl"] .hero-phone{left:auto;right:8px}
+  body[dir="rtl"] .chip-field{right:auto;left:2%}
+  body[dir="rtl"] .chip-local{right:auto;left:0}
+}
