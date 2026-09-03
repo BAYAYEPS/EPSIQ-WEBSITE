@@ -1,5 +1,5 @@
 (() => {
-  ['/hero-media.css', '/brand.css'].forEach((href) => {
+  ['/hero-media.css', '/brand.css', '/product-media.css'].forEach((href) => {
     const stylesheet = document.createElement('link');
     stylesheet.rel = 'stylesheet';
     stylesheet.href = href;
