@@ -1,0 +1,363 @@
+/* WEB3 final responsive polish — conservative overrides only */
+
+/* EPSIQ is an Android app: keep the presentation device-neutral. */
+.phone-speaker {
+  display: none !important;
+}
+
+@media (min-width: 901px) {
+  .hero {
+    min-height: 620px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1.08fr .92fr;
+    min-height: 620px;
+    padding: 52px 56px;
+    gap: 34px;
+  }
+
+  .hero-copy {
+    max-width: 680px;
+  }
+
+  .hero h1 {
+    font-size: clamp(54px, 5.5vw, 76px);
+    line-height: .97;
+    letter-spacing: -.058em;
+    max-width: 650px;
+    margin: 24px 0 20px;
+  }
+
+  .hero-lead {
+    font-size: 17px;
+    line-height: 1.65;
+    max-width: 610px;
+  }
+
+  .coverage-inline {
+    margin-top: 22px;
+  }
+
+  .hero-actions {
+    flex-wrap: nowrap;
+    margin: 24px 0 18px;
+  }
+
+  .hero-actions .btn {
+    min-height: 52px;
+    padding: 0 18px;
+    font-size: 14px;
+  }
+
+  .hero-visual {
+    min-height: 500px;
+  }
+
+  .field-panel {
+    display: none;
+  }
+
+  .hero-visual::before {
+    content: "";
+    position: absolute;
+    inset: 8% 3% 7% 6%;
+    border-radius: 32px;
+    background:
+      radial-gradient(circle at 72% 20%, rgba(154, 223, 56, .28), transparent 32%),
+      linear-gradient(145deg, rgba(255,255,255,.72), rgba(213,231,217,.92));
+    border: 1px solid rgba(8,61,51,.08);
+    box-shadow: 0 24px 58px rgba(5,55,38,.10);
+  }
+
+  .phone-main {
+    width: 286px;
+    height: 538px;
+  }
+
+  .note-a {
+    left: 2%;
+    top: 22%;
+  }
+
+  .note-b {
+    right: 0;
+    bottom: 13%;
+  }
+
+  .section {
+    padding: 78px 24px;
+  }
+
+  .journey-section {
+    padding-top: 82px;
+    padding-bottom: 64px;
+  }
+
+  .product-section {
+    padding-top: 70px;
+    padding-bottom: 64px;
+  }
+
+  .field-section {
+    padding-top: 58px;
+    padding-bottom: 66px;
+  }
+
+  .coverage-section {
+    padding-top: 68px;
+    padding-bottom: 66px;
+  }
+
+  .download-section {
+    padding-top: 66px;
+    padding-bottom: 62px;
+  }
+
+  .section-head h2,
+  .field-card h2,
+  .download-card h2 {
+    font-size: clamp(38px, 4.5vw, 58px);
+    line-height: 1.03;
+  }
+
+  .journey {
+    margin-top: 36px;
+  }
+
+  .journey-card {
+    margin-top: 24px;
+  }
+
+  .product-stage {
+    min-height: 540px;
+  }
+
+  .product-copy {
+    padding: 52px;
+  }
+
+  .product-copy h3 {
+    font-size: clamp(36px, 3.6vw, 50px);
+  }
+
+  .field-card {
+    padding: 54px;
+    gap: 44px;
+  }
+
+  .coverage-grid {
+    margin-top: 30px;
+  }
+
+  .download-card {
+    padding: 54px;
+  }
+}
+
+@media (max-width: 900px) {
+  .field-panel {
+    display: none !important;
+  }
+
+  .hero {
+    min-height: 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 48px 28px 32px;
+    gap: 34px;
+  }
+
+  .hero-copy {
+    max-width: none;
+  }
+
+  .hero h1 {
+    font-size: clamp(46px, 11vw, 64px);
+    line-height: .98;
+    letter-spacing: -.052em;
+    margin: 22px 0 18px;
+  }
+
+  .hero-lead {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .coverage-inline {
+    margin-top: 22px;
+  }
+
+  .hero-visual {
+    min-height: 490px;
+  }
+
+  .hero-visual::before {
+    content: "";
+    position: absolute;
+    inset: 7% 8% 5%;
+    border-radius: 30px;
+    background:
+      radial-gradient(circle at 72% 20%, rgba(154, 223, 56, .26), transparent 32%),
+      linear-gradient(145deg, rgba(255,255,255,.74), rgba(213,231,217,.92));
+    border: 1px solid rgba(8,61,51,.08);
+    box-shadow: 0 22px 50px rgba(5,55,38,.10);
+  }
+
+  .phone-main {
+    width: 260px;
+    height: 500px;
+    transform: rotate(1.5deg);
+  }
+
+  .trust-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section {
+    padding: 64px 18px;
+  }
+
+  .section-head h2,
+  .field-card h2,
+  .download-card h2 {
+    font-size: clamp(36px, 8vw, 50px);
+    line-height: 1.04;
+  }
+
+  .product-stage {
+    min-height: 0;
+  }
+
+  .field-card {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-grid {
+    padding: 36px 18px 26px;
+    gap: 28px;
+  }
+
+  .hero-badge {
+    font-size: 9.5px;
+    line-height: 1.35;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+  }
+
+  .coverage-inline {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .coverage-pill {
+    padding: 12px;
+  }
+
+  .coverage-pill strong {
+    font-size: 15px;
+  }
+
+  .coverage-pill small {
+    font-size: 10px;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hero-visual {
+    min-height: 420px;
+  }
+
+  .hero-visual::before {
+    inset: 8% 0 5%;
+    border-radius: 24px;
+  }
+
+  .phone-main {
+    width: 225px;
+    height: 420px;
+    border-radius: 34px;
+    padding: 8px;
+  }
+
+  .phone-main::before {
+    border-radius: 27px;
+  }
+
+  .phone-main img {
+    border-radius: 26px;
+  }
+
+  .visual-note {
+    display: none;
+  }
+
+  .trust-strip {
+    grid-template-columns: 1fr;
+    margin: 14px 16px 0;
+  }
+
+  .section {
+    padding: 56px 16px;
+  }
+
+  .section-head h2,
+  .field-card h2,
+  .download-card h2 {
+    font-size: 36px;
+  }
+
+  .journey-section {
+    padding-bottom: 48px;
+  }
+
+  .product-section {
+    padding-top: 52px;
+    padding-bottom: 48px;
+  }
+
+  .field-section {
+    padding-top: 44px;
+    padding-bottom: 48px;
+  }
+
+  .coverage-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .download-section {
+    padding-top: 48px;
+  }
+
+  .product-copy {
+    padding: 28px 22px 20px;
+  }
+
+  .product-copy h3 {
+    font-size: 34px;
+  }
+
+  .field-card {
+    padding: 28px 22px;
+  }
+
+  .coverage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .download-card {
+    padding: 30px 22px;
+  }
+}
