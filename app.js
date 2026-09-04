@@ -1,4 +1,9 @@
 (() => {
+  const polishStyles = document.createElement('link');
+  polishStyles.rel = 'stylesheet';
+  polishStyles.href = '/final-polish.css';
+  document.head.appendChild(polishStyles);
+
   const root = document.documentElement;
   const body = document.body;
   const langToggle = document.getElementById('languageToggle');
