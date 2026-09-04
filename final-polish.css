@@ -1,5 +1,10 @@
 /* WEB3 final responsive polish — conservative overrides only */
 
+/* EPSIQ is an Android app: keep the presentation device-neutral. */
+.phone-speaker {
+  display: none !important;
+}
+
 @media (min-width: 901px) {
   .hero {
     min-height: 620px;
@@ -292,12 +297,6 @@
 
   .phone-main img {
     border-radius: 26px;
-  }
-
-  .phone-speaker {
-    width: 58px;
-    height: 15px;
-    top: 10px;
   }
 
   .visual-note {
