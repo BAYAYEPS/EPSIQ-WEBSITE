@@ -1,33 +1,62 @@
-# EPSIQ Website
+# EPSIQ Official Website
 
-Official public website and direct distribution channel for **EPSIQ Collège V1**.
+Official public website and DIRECT distribution channel for **EPSIQ Maroc**.
 
 ## Current public release
 
-- Product: EPSIQ Collège V1
-- Version code: 4
-- Version name: 1.0.3
-- Android: 7.0+
-- Public scope: Collège (1AC / 2AC / 3AC)
-- Lycée: Coming soon
-- Price: Free
+- Version: **2.0.1**
+- Version code: **20001**
+- Android: **7.0+**
+- Scope: **Collège + Lycée**
+- Levels: **1AC, 2AC, 3AC, TC, 1BAC, 2BAC**
+- Distribution channel: **DIRECT**
 
-Qualified APK SHA-256:
+Official APK:
 
-`270a5040cc30d148e8be7301c39c536671310dec463ad849974b094ed0048b87`
+`https://github.com/BAYAYEPS/EPSIQ-WEBSITE/releases/download/v2.0.1/EPSIQ-2.0.1.apk`
 
-Qualified AAB SHA-256:
+APK SHA-256:
 
-`2900c2b357167d7d809d17031580b6618f6d5b60f7b852286506f4bc0b62ce7c`
+`48f2b49aa8fb00a769bd445dc2a1ac566dc8c54d776e55e8f0047e3265a85fdd`
 
-## Hosting
+## Website
 
-The site is static and prepared for Cloudflare Pages. No application source code, signing secret, student data, or teacher data belongs in this repository.
+Production domain:
 
-## Release asset
+`https://epsiq.ma`
 
-The website expects the public APK asset at:
+The website is bilingual:
 
-`releases/download/v1.0.3/EPSIQ-1.0.3.apk`
+- French
+- Arabic
 
-The APK uploaded there must match the qualified SHA-256 above.
+It includes:
+
+- EPSIQ product presentation
+- Collège + Lycée coverage
+- Android download
+- annual-access activation
+- pedagogical resources
+- privacy policy
+- terms
+- support
+- DIRECT update discovery manifest
+
+## Update manifest
+
+The Android application checks:
+
+`https://epsiq.ma/app-update.json`
+
+The manifest must only be updated after the corresponding APK has been published and verified.
+
+## Deployment
+
+Production website files are maintained in this repository.
+
+Cloudflare deployment configuration is retained through:
+
+- `_headers`
+- `wrangler.jsonc`
+
+Do not publish secrets, signing credentials, private keys, license codes, teacher data, or student data in this repository.

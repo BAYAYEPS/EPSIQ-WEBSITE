@@ -1,217 +1,407 @@
 <!doctype html>
-<html lang="fr" dir="ltr">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#073f34">
-  <meta name="description" content="EPSIQ — le copilote de l’enseignant d’EPS. Planification, diagnostic, projet du cycle, fiches, suivi, évaluation, bilan et export dans un seul parcours.">
-  <meta property="og:title" content="EPSIQ — Toute votre EPS. Un seul parcours.">
-  <meta property="og:description" content="EPSIQ accompagne le travail réel de l’enseignant d’EPS, de la planification au bilan. Collège disponible, lycée en préparation.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b4e42">
+  <meta name="description" content="EPSIQ — Application Android professionnelle pour les enseignants d’EPS du secondaire collégial et qualifiant au Maroc : planification, diagnostic, projet du cycle, fiches, suivi terrain, évaluation, bilan et exports. Une première expérience complète est prévue avant l’accès annuel.">
+  <meta property="og:title" content="EPSIQ — Le copilote intelligent de l’enseignant d’EPS">
+  <meta property="og:description" content="Toute votre EPS. Enfin au même endroit. EPSIQ est une application Android professionnelle pour les enseignants d’EPS du collège et du lycée au Maroc, avec un parcours complet de la planification au bilan.">
   <meta property="og:type" content="website">
-  <title>EPSIQ — Toute votre EPS. Un seul parcours.</title>
-  <link rel="icon" href="/assets/epsiq-icon.png">
-  <link rel="stylesheet" href="/styles.css">
-  <script src="/app.js" defer></script>
-  <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"16625f5d018844f89cc67030988c2cba"}'></script><!-- End Cloudflare Web Analytics -->
+  <meta property="og:url" content="https://epsiq.ma/">
+  <meta property="og:image" content="https://epsiq.ma/assets/logo-full.png">
+  <link rel="canonical" href="https://epsiq.ma/">
+  <link rel="alternate" hreflang="fr" href="https://epsiq.ma/">
+  <link rel="alternate" hreflang="ar" href="https://epsiq.ma/ar.html">
+  <link rel="alternate" hreflang="x-default" href="https://epsiq.ma/">
+  <link rel="icon" href="assets/favicon-192.png" sizes="192x192">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>EPSIQ — Le copilote intelligent de l’enseignant d’EPS</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "EPSIQ",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Android",
+  "url": "https://epsiq.ma/",
+  "description": "Application Android professionnelle pour les enseignants d’EPS du secondaire collégial et qualifiant au Maroc, couvrant la planification, le diagnostic, le projet du cycle, les fiches, le suivi terrain, l’évaluation, le bilan et les exports.",
+  "audience": {
+    "@type": "EducationalAudience",
+    "educationalRole": "teacher"
+  },
+  "inLanguage": [
+    "fr",
+    "ar"
+  ]
+}
+  </script>
 </head>
 <body>
-  <a class="skip-link" href="#main" data-fr="Aller au contenu" data-ar="الانتقال إلى المحتوى">Aller au contenu</a>
-
-  <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="EPSIQ — accueil">
-      <img src="/assets/epsiq-icon.png" alt="Logo EPSIQ" width="44" height="44">
-      <span>EPSIQ</span>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<header class="site-header" id="top">
+  <div class="shell nav-shell">
+    <a class="brand" href="#top" aria-label="EPSIQ — Accueil">
+      <img class="brand-logo" src="assets/logo-mark.webp" alt="">
+      <span><strong>EPSIQ</strong><small>Le copilote intelligent de l’enseignant d’EPS</small></span>
     </a>
-    <nav class="desktop-nav" aria-label="Navigation principale">
-      <a href="#parcours" data-fr="Parcours" data-ar="المسار">Parcours</a>
-      <a href="#application" data-fr="Application" data-ar="التطبيق">Application</a>
-      <a href="#couverture" data-fr="Couverture" data-ar="التغطية">Couverture</a>
-      <a href="#telecharger" data-fr="Télécharger" data-ar="تحميل">Télécharger</a>
+    <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#download" class="menu-priority menu-download">Télécharger EPSIQ</a>
+      <a href="#abonnement" class="menu-priority menu-activation">Activation</a>
+      <a href="#experience">Expérience</a>
+      <a href="#workflow">Parcours</a>
+      <a href="#references">Références</a>
+      <a href="#ressources">Ressources</a>
+      <a href="#faq">FAQ</a>
+      <a href="#support">Support</a>
     </nav>
-    <div class="header-actions">
-      <button class="lang-toggle" id="languageToggle" type="button" aria-label="Passer en arabe"><span class="is-active">FR</span><span>AR</span></button>
-      <a class="header-download" href="https://github.com/BAYAYEPS/EPSIQ-WEBSITE/releases/download/v1.0.3/EPSIQ-1.0.3.apk"><span data-fr="Télécharger" data-ar="تحميل">Télécharger</span></a>
+    <div class="language-switch" aria-label="Choisir la langue"><span class="language-current" aria-current="page">FR</span><span aria-hidden="true">|</span><a href="ar.html" lang="ar" dir="rtl" data-language="ar">العربية</a></div>
+    <a class="btn btn-primary nav-cta" href="#download">Android</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">Application Android · Pensée pour le terrain · Maroc</span>
+        <h1>Toute votre EPS.<br><span>Enfin au même endroit.</span></h1>
+        <p class="hero-lead">Planifiez l’année et vos cycles, préparez le diagnostic et les séances, suivez vos classes sur le terrain, évaluez puis exportez — dans un seul parcours pensé pour le travail réel de l’enseignant d’EPS.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#download">Télécharger EPSIQ sur Android</a>
+          <a class="btn btn-ghost btn-lg hero-activation-link" href="#abonnement">Déjà installé ? Activer mon accès</a>
+          <a class="btn btn-ghost btn-lg hero-tertiary-link" href="#workflow">Voir le parcours</a>
+        </div>
+        <div class="hero-trust" aria-label="Atouts clés">
+          <span>✓ Collège + Lycée · 1AC → 2BAC</span>
+          <span>✓ Cœur utilisable hors connexion</span>
+          <span>✓ Français + العربية</span>
+          <span>✓ Références pédagogiques vérifiées</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal reveal-delay-1" aria-label="Aperçu d’EPSIQ sur Android">
+        <div class="field-orbit" aria-hidden="true"></div>
+        <div class="phone android-phone hero-main"><img src="assets/116996.webp" alt="Écran Accueil d’EPSIQ avec la prochaine action pédagogique"></div>
+        <div class="phone android-phone hero-back-left"><img src="assets/116997.webp" alt="Écran Cycles d’EPSIQ"></div>
+        <div class="phone android-phone hero-back-right"><img src="assets/117000.webp" alt="Écran de suivi individuel des élèves"></div>
+        <div class="hero-note"><strong>Un seul fil conducteur</strong><span>Du diagnostic au bilan.</span></div>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main id="main">
-    <section class="hero">
-      <div class="hero-atmosphere" aria-hidden="true"></div>
-      <div class="hero-grid">
-        <div class="hero-copy reveal">
-          <div class="hero-badge"><i></i><span data-fr="Conçu au Maroc pour le travail réel de l’enseignant d’EPS" data-ar="مصمم في المغرب لواقع عمل أستاذ التربية البدنية والرياضية">Conçu au Maroc pour le travail réel de l’enseignant d’EPS</span></div>
-          <h1 data-fr="Toute votre EPS. Un seul parcours." data-ar="كل عملك في التربية البدنية. مسار واحد.">Toute votre EPS. Un seul parcours.</h1>
-          <p class="hero-lead" data-fr="De la planification au bilan, EPSIQ réunit préparation, terrain et décision pédagogique dans une expérience claire, rapide et cohérente." data-ar="من التخطيط إلى الحصيلة، يجمع EPSIQ التحضير والعمل الميداني والقرار البيداغوجي في تجربة واضحة وسريعة ومترابطة.">De la planification au bilan, EPSIQ réunit préparation, terrain et décision pédagogique dans une expérience claire, rapide et cohérente.</p>
+  <section class="proof-strip" aria-label="Parcours en quatre temps">
+    <div class="shell proof-grid">
+      <div><strong>Planifier</strong><span>Année, classes, cycles</span></div>
+      <div><strong>Préparer</strong><span>Diagnostic, projet, fiches</span></div>
+      <div><strong>Suivre</strong><span>Terrain, présence, observations</span></div>
+      <div><strong>Évaluer</strong><span>Résultats, bilan, exports</span></div>
+    </div>
+  </section>
 
-          <div class="coverage-inline" aria-label="Couverture EPSIQ">
-            <article class="coverage-pill is-live">
-              <span class="coverage-status" data-fr="Disponible" data-ar="متاح">Disponible</span>
-              <strong data-fr="Collège" data-ar="الإعدادي">Collège</strong>
-              <small>1AC · 2AC · 3AC</small>
-            </article>
-            <article class="coverage-pill is-next">
-              <span class="coverage-status" data-fr="En préparation" data-ar="قيد التحضير">En préparation</span>
-              <strong data-fr="Lycée" data-ar="التأهيلي">Lycée</strong>
-              <small data-fr="Tronc commun · 1BAC · 2BAC" data-ar="الجذع المشترك · الأولى باك · الثانية باك">Tronc commun · 1BAC · 2BAC</small>
-            </article>
-          </div>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://github.com/BAYAYEPS/EPSIQ-WEBSITE/releases/download/v1.0.3/EPSIQ-1.0.3.apk"><span class="download-mark" aria-hidden="true">↓</span><span data-fr="Télécharger EPSIQ gratuitement" data-ar="تحميل EPSIQ مجاناً">Télécharger EPSIQ gratuitement</span></a>
-            <a class="btn btn-ghost" href="#application"><span data-fr="Découvrir l’application" data-ar="اكتشف التطبيق">Découvrir l’application</span><span aria-hidden="true">→</span></a>
-          </div>
-
-          <div class="hero-facts" aria-label="Informations de version">
-            <span><i></i><strong>1.0.3</strong></span>
-            <span>Android 7.0+</span>
-            <span data-fr="100 % gratuit" data-ar="مجاني 100٪">100 % gratuit</span>
-            <span data-fr="Données locales" data-ar="بيانات محلية">Données locales</span>
-            <span>FR / العربية</span>
-          </div>
-        </div>
-
-        <div class="hero-visual reveal" aria-label="Aperçu réel d’EPSIQ">
-          <div class="field-panel" aria-hidden="true"><img src="/assets/epsiq-campaign-hero.webp" alt=""></div>
-          <div class="phone-main">
-            <div class="phone-speaker" aria-hidden="true"></div>
-            <img src="/assets/epsiq-home-2026.webp" alt="Capture réelle de l’accueil EPSIQ" width="430" height="760">
-          </div>
-          <div class="visual-note note-a"><strong data-fr="Préparer" data-ar="حضّر">Préparer</strong><span data-fr="avant le terrain" data-ar="قبل الميدان">avant le terrain</span></div>
-          <div class="visual-note note-b"><strong data-fr="Décider" data-ar="قرّر">Décider</strong><span data-fr="à partir du réel" data-ar="انطلاقاً من الواقع">à partir du réel</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="trust-strip reveal" aria-label="Principes EPSIQ">
-      <article><span class="trust-icon">01</span><div><strong data-fr="Pensé pour l’EPS" data-ar="مصمم للتربية البدنية">Pensé pour l’EPS</strong><small data-fr="Pas une app fitness générique" data-ar="ليس تطبيق لياقة عاماً">Pas une app fitness générique</small></div></article>
-      <article><span class="trust-icon">02</span><div><strong data-fr="Le contexte reste clair" data-ar="السياق يبقى واضحاً">Le contexte reste clair</strong><small data-fr="Classe, cycle et prochaine action" data-ar="القسم والحلقة والخطوة التالية">Classe, cycle et prochaine action</small></div></article>
-      <article><span class="trust-icon">03</span><div><strong data-fr="Prêt pour le terrain" data-ar="جاهز للميدان">Prêt pour le terrain</strong><small data-fr="Lisible, rapide, local" data-ar="واضح، سريع، محلي">Lisible, rapide, local</small></div></article>
-      <article><span class="trust-icon">04</span><div><strong data-fr="Un parcours cohérent" data-ar="مسار مترابط">Un parcours cohérent</strong><small data-fr="Préparer → exécuter → valider" data-ar="حضّر ← نفّذ ← اعتمد">Préparer → exécuter → valider</small></div></article>
-    </section>
-
-    <section class="section journey-section" id="parcours">
+  <section class="section" id="experience">
+    <div class="shell compact-shell">
       <div class="section-head reveal">
-        <span class="kicker" data-fr="LE FIL DE TRAVAIL" data-ar="مسار العمل">LE FIL DE TRAVAIL</span>
-        <h2 data-fr="Sept étapes. Une seule logique pédagogique." data-ar="سبع مراحل. منطق بيداغوجي واحد.">Sept étapes. Une seule logique pédagogique.</h2>
-        <p data-fr="EPSIQ suit l’ordre réel du métier : planifier, préparer avant d’exécuter, observer avant de décider, puis valider avant d’exporter." data-ar="يتبع EPSIQ الترتيب الحقيقي للعمل: التخطيط، والتحضير قبل التنفيذ، والملاحظة قبل القرار، ثم الاعتماد قبل التصدير.">EPSIQ suit l’ordre réel du métier : planifier, préparer avant d’exécuter, observer avant de décider, puis valider avant d’exporter.</p>
+        <span class="eyebrow">Une autre façon de travailler</span>
+        <h2>Moins de dispersion.<br>Plus de continuité.</h2>
+        <p>EPSIQ relie les décisions pédagogiques dans un même parcours et indique clairement la prochaine étape.</p>
       </div>
-
-      <div class="journey reveal">
-        <div class="journey-rail" role="tablist" aria-label="Étapes du parcours">
-          <button class="journey-step is-active" data-step="0" role="tab" aria-selected="true"><b>1</b><span data-fr="Planification" data-ar="التخطيط">Planification</span></button>
-          <button class="journey-step" data-step="1" role="tab" aria-selected="false"><b>2</b><span data-fr="Diagnostic S1" data-ar="تشخيص S1">Diagnostic S1</span></button>
-          <button class="journey-step" data-step="2" role="tab" aria-selected="false"><b>3</b><span data-fr="Projet" data-ar="المشروع">Projet</span></button>
-          <button class="journey-step" data-step="3" role="tab" aria-selected="false"><b>4</b><span data-fr="Fiches" data-ar="الجذاذات">Fiches</span></button>
-          <button class="journey-step" data-step="4" role="tab" aria-selected="false"><b>5</b><span data-fr="Suivi" data-ar="التتبع">Suivi</span></button>
-          <button class="journey-step" data-step="5" role="tab" aria-selected="false"><b>6</b><span data-fr="Évaluation" data-ar="التقويم">Évaluation</span></button>
-          <button class="journey-step" data-step="6" role="tab" aria-selected="false"><b>7</b><span data-fr="Bilan" data-ar="الحصيلة">Bilan</span></button>
-        </div>
-        <article class="journey-card" aria-live="polite">
-          <span id="journeyNumber">01</span>
-          <div><h3 id="journeyTitle">Planification annuelle</h3><p id="journeyText">Organiser les cycles de l’année par niveau avant l’exécution.</p></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section product-section" id="application">
-      <div class="section-head product-head reveal">
-        <span class="kicker" data-fr="L’APPLICATION, EN VRAI" data-ar="التطبيق كما هو فعلاً">L’APPLICATION, EN VRAI</span>
-        <h2 data-fr="Le produit parle mieux que les promesses." data-ar="المنتج يشرح نفسه أفضل من الوعود.">Le produit parle mieux que les promesses.</h2>
-        <p data-fr="De vraies captures d’EPSIQ, aux moments qui comptent dans le cycle de l’enseignant." data-ar="لقطات حقيقية من EPSIQ في اللحظات المهمة داخل حلقة عمل الأستاذ.">De vraies captures d’EPSIQ, aux moments qui comptent dans le cycle de l’enseignant.</p>
-      </div>
-
-      <div class="product-tabs reveal" role="tablist" aria-label="Aperçus de l’application">
-        <button class="product-tab is-active" data-product="0" role="tab" aria-selected="true" data-fr="Préparer S1" data-ar="تحضير S1">Préparer S1</button>
-        <button class="product-tab" data-product="1" role="tab" aria-selected="false" data-fr="Voir l’état" data-ar="معرفة الحالة">Voir l’état</button>
-        <button class="product-tab" data-product="2" role="tab" aria-selected="false" data-fr="Finaliser" data-ar="الإنهاء">Finaliser</button>
-      </div>
-
-      <div class="product-stage reveal">
-        <div class="product-copy">
-          <span class="product-index" id="productIndex">01 / 03</span>
-          <h3 id="productTitle">Préparer la séance diagnostique</h3>
-          <p id="productText">La fiche S1 et l’organisation de l’observation sont préparées avant le terrain, sans confondre préparation et exécution.</p>
-          <div class="product-tags" id="productTags"><span>Fiche S1</span><span>Observation</span><span>Préparation</span></div>
-        </div>
-        <div class="product-device">
-          <div class="device-shell"><img id="productImage" src="/assets/epsiq-diagnostic.webp" alt="Capture réelle de la fiche diagnostique S1 dans EPSIQ" width="360" height="633"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section field-section">
-      <div class="field-card reveal">
-        <div class="field-copy">
-          <span class="kicker kicker-light" data-fr="PENSÉ POUR LE TERRAIN" data-ar="مصمم للميدان">PENSÉ POUR LE TERRAIN</span>
-          <h2 data-fr="L’outil doit s’effacer derrière votre cours." data-ar="يجب أن تختفي الأداة خلف عملك داخل الحصة.">L’outil doit s’effacer derrière votre cours.</h2>
-          <p data-fr="Une action principale claire, un contexte de classe visible et des données qui restent sur l’appareil : EPSIQ réduit la gestion pour laisser plus de place à l’enseignement." data-ar="إجراء رئيسي واضح، وسياق قسم ظاهر، وبيانات تبقى على الجهاز: يقلل EPSIQ التدبير ليترك مساحة أكبر للتدريس.">Une action principale claire, un contexte de classe visible et des données qui restent sur l’appareil : EPSIQ réduit la gestion pour laisser plus de place à l’enseignement.</p>
-        </div>
-        <div class="field-values">
-          <article><b data-fr="Local" data-ar="محلي">Local</b><span data-fr="Données sur l’appareil" data-ar="البيانات على الجهاز">Données sur l’appareil</span></article>
-          <article><b>FR / العربية</b><span data-fr="Interface bilingue" data-ar="واجهة ثنائية اللغة">Interface bilingue</span></article>
-          <article><b data-fr="Teacher-first" data-ar="الأستاذ أولاً">Teacher-first</b><span data-fr="Une action principale à la fois" data-ar="إجراء رئيسي واحد كل مرة">Une action principale à la fois</span></article>
-          <article><b data-fr="Terrain" data-ar="الميدان">Terrain</b><span data-fr="Rapide et lisible" data-ar="سريع وواضح">Rapide et lisible</span></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section coverage-section" id="couverture">
-      <div class="section-head reveal">
-        <span class="kicker" data-fr="UNE IDENTITÉ, DEUX CYCLES D’ENSEIGNEMENT" data-ar="هوية واحدة لسلكين تعليميين">UNE IDENTITÉ, DEUX CYCLES D’ENSEIGNEMENT</span>
-        <h2 data-fr="EPSIQ grandit sans changer de logique." data-ar="يتوسع EPSIQ دون أن يغيّر منطقه.">EPSIQ grandit sans changer de logique.</h2>
-        <p data-fr="Le Collège est disponible aujourd’hui. Le Lycée rejoint la même expérience EPSIQ, avec une couverture annoncée uniquement lorsqu’elle est prête." data-ar="الإعدادي متاح اليوم. ويلتحق التأهيلي بنفس تجربة EPSIQ، مع إعلان التغطية فقط عندما تصبح جاهزة.">Le Collège est disponible aujourd’hui. Le Lycée rejoint la même expérience EPSIQ, avec une couverture annoncée uniquement lorsqu’elle est prête.</p>
-      </div>
-
-      <div class="coverage-grid reveal">
-        <article class="coverage-card coverage-current">
-          <div class="coverage-top"><span class="status-dot"></span><b data-fr="Disponible maintenant" data-ar="متاح الآن">Disponible maintenant</b></div>
-          <h3 data-fr="Collège" data-ar="الإعدادي">Collège</h3>
-          <p>1AC · 2AC · 3AC</p>
+      <div class="compare-grid">
+        <article class="compare-card before reveal">
+          <span class="compare-kicker">Avant</span>
+          <h3>Plusieurs supports, plusieurs ruptures.</h3>
           <ul>
-            <li data-fr="Planification annuelle" data-ar="التخطيط السنوي">Planification annuelle</li>
-            <li data-fr="Diagnostic → projet → fiches" data-ar="التشخيص ← المشروع ← الجذاذات">Diagnostic → projet → fiches</li>
-            <li data-fr="Suivi → évaluation → bilan" data-ar="التتبع ← التقويم ← الحصيلة">Suivi → évaluation → bilan</li>
+            <li>Documents et notes dispersés</li>
+            <li>Préparation difficile à relier au terrain</li>
+            <li>Suivi, évaluation et exports séparés</li>
+            <li>Temps perdu à chercher la prochaine étape</li>
           </ul>
         </article>
-        <article class="coverage-card coverage-future">
-          <div class="coverage-top"><span class="status-dot"></span><b data-fr="En préparation" data-ar="قيد التحضير">En préparation</b></div>
-          <h3 data-fr="Lycée" data-ar="التأهيلي">Lycée</h3>
-          <p data-fr="Tronc commun · 1BAC · 2BAC" data-ar="الجذع المشترك · الأولى باك · الثانية باك">Tronc commun · 1BAC · 2BAC</p>
-          <div class="future-line" data-fr="Même identité. Même logique de travail. Couverture adaptée au lycée." data-ar="نفس الهوية. نفس منطق العمل. تغطية ملائمة للتأهيلي.">Même identité. Même logique de travail. Couverture adaptée au lycée.</div>
+        <article class="compare-card after reveal reveal-delay-1">
+          <span class="compare-kicker">Avec EPSIQ</span>
+          <h3>Une prochaine action claire.</h3>
+          <div class="compare-screen android-shot"><img src="assets/116996.webp" alt="Accueil EPSIQ"></div>
+          <p>Le tableau de bord répond d’abord à une question : <strong>que dois-je faire maintenant ?</strong></p>
         </article>
       </div>
-    </section>
-
-    <section class="section download-section" id="telecharger">
-      <div class="download-card reveal">
-        <div class="download-copy">
-          <span class="kicker kicker-light" data-fr="VERSION PUBLIQUE ACTUELLE" data-ar="النسخة العامة الحالية">VERSION PUBLIQUE ACTUELLE</span>
-          <h2 data-fr="Commencez votre prochain cycle avec EPSIQ." data-ar="ابدأ حلقتك القادمة مع EPSIQ.">Commencez votre prochain cycle avec EPSIQ.</h2>
-          <p data-fr="EPSIQ 1.0.3 est disponible gratuitement pour le Collège. Aucun abonnement et aucun compte EPSIQ requis." data-ar="EPSIQ 1.0.3 متاح مجاناً للإعدادي، بدون اشتراك وبدون حساب EPSIQ.">EPSIQ 1.0.3 est disponible gratuitement pour le Collège. Aucun abonnement et aucun compte EPSIQ requis.</p>
-          <a class="btn btn-lime" href="https://github.com/BAYAYEPS/EPSIQ-WEBSITE/releases/download/v1.0.3/EPSIQ-1.0.3.apk"><span aria-hidden="true">↓</span><span data-fr="Télécharger EPSIQ 1.0.3" data-ar="تحميل EPSIQ 1.0.3">Télécharger EPSIQ 1.0.3</span></a>
-          <div class="download-meta"><span>Android 7.0+</span><span>≈ 15,2 Mo</span><span>APK</span><span data-fr="100 % gratuit" data-ar="مجاني 100٪">100 % gratuit</span></div>
-        </div>
-        <div class="download-proof">
-          <strong data-fr="Fichier vérifiable" data-ar="ملف قابل للتحقق">Fichier vérifiable</strong>
-          <p data-fr="Le SHA-256 de la version publique qualifiée reste disponible pour vérification." data-ar="يبقى SHA-256 للنسخة العامة المؤهلة متاحاً للتحقق.">Le SHA-256 de la version publique qualifiée reste disponible pour vérification.</p>
-          <details class="file-check"><summary data-fr="Afficher le SHA-256" data-ar="عرض SHA-256">Afficher le SHA-256</summary><code id="apkHash">270a5040cc30d148e8be7301c39c536671310dec463ad849974b094ed0048b87</code><button id="copyHash" type="button" data-fr="Copier" data-ar="نسخ">Copier</button></details>
-        </div>
-      </div>
-
-      <div class="install-grid reveal">
-        <article><b>1</b><div><strong data-fr="Télécharger" data-ar="تحميل">Télécharger</strong><p data-fr="Touchez le bouton de téléchargement." data-ar="اضغط زر التحميل.">Touchez le bouton de téléchargement.</p></div></article>
-        <article><b>2</b><div><strong data-fr="Ouvrir" data-ar="فتح">Ouvrir</strong><p data-fr="Ouvrez le fichier APK." data-ar="افتح ملف APK.">Ouvrez le fichier APK.</p></div></article>
-        <article><b>3</b><div><strong data-fr="Installer" data-ar="تثبيت">Installer</strong><p data-fr="Installez EPSIQ puis ouvrez l’application." data-ar="ثبّت EPSIQ ثم افتح التطبيق.">Installez EPSIQ puis ouvrez l’application.</p></div></article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-identity">
-      <a class="brand footer-brand" href="#top"><img src="/assets/epsiq-icon.png" alt="Logo EPSIQ" width="38" height="38"><span>EPSIQ</span></a>
-      <p data-fr="Le copilote de l’enseignant d’EPS, du terrain au bilan." data-ar="مساعد أستاذ التربية البدنية، من الميدان إلى الحصيلة.">Le copilote de l’enseignant d’EPS, du terrain au bilan.</p>
     </div>
-    <nav><a href="#parcours" data-fr="Parcours" data-ar="المسار">Parcours</a><a href="#application" data-fr="Application" data-ar="التطبيق">Application</a><a href="#couverture" data-fr="Couverture" data-ar="التغطية">Couverture</a><a href="https://bayayeps.github.io/epsiq-privacy/" data-fr="Confidentialité" data-ar="الخصوصية">Confidentialité</a><span>Version 1.0.3</span></nav>
-  </footer>
+  </section>
+
+  <section class="section audience" id="pour-qui">
+    <div class="shell">
+      <div class="section-head reveal">
+        <span class="eyebrow">Pour qui est EPSIQ ?</span>
+        <h2>Conçu pour l’enseignant d’EPS qui veut garder le fil.</h2>
+        <p>La version actuelle s’adresse aux enseignants d’EPS du <strong>secondaire collégial et qualifiant au Maroc</strong> — 1AC, 2AC, 3AC, Tronc commun, 1BAC et 2BAC — qui souhaitent relier préparation, terrain, évaluation et documents sans multiplier les supports.</p>
+      </div>
+      <div class="audience-grid">
+        <article class="info-card reveal"><span class="info-icon">01</span><h3>Enseignant d’EPS au collège et au lycée</h3><p>Une interface structurée autour des classes, des niveaux, des cycles et des séances du secondaire collégial et qualifiant.</p></article>
+        <article class="info-card reveal reveal-delay-1"><span class="info-icon">02</span><h3>Usage quotidien sur Android</h3><p>Préparation à la maison, consultation avant la séance et suivi rapide sur le terrain depuis un téléphone Android.</p></article>
+        <article class="info-card reveal reveal-delay-2"><span class="info-icon">03</span><h3>Contexte marocain</h3><p>Année scolaire, niveaux du collège et du lycée, import de classes, exports et usages pensés pour le contexte professionnel de l’EPS au Maroc.</p></article>
+      </div>
+
+      <div class="scope-card reveal">
+        <div class="scope-copy">
+          <span class="eyebrow">Ce que couvre l’application</span>
+          <h3>Un seul outil, du début de l’année à la clôture du cycle.</h3>
+          <p>EPSIQ n’est pas un simple carnet de présence. Il relie les étapes qui composent réellement le travail de l’enseignant.</p>
+        </div>
+        <div class="scope-grid">
+          <div><strong>Planification annuelle</strong><span>Année scolaire, classes, répartition des cycles par niveau.</span></div>
+          <div><strong>Diagnostic S1</strong><span>Fiche diagnostique, observation, critères et priorités.</span></div>
+          <div><strong>Projet du cycle</strong><span>Objectif protégé lorsqu’il est officiel, propositions pédagogiques modifiables.</span></div>
+          <div><strong>Fiches de séance</strong><span>Objectifs, matériel, phases, situations, critères et observations.</span></div>
+          <div><strong>Suivi terrain</strong><span>Présence, retard, tenue, participation et observations individuelles.</span></div>
+          <div><strong>Évaluation finale</strong><span>Évaluation motrice, dimensions complémentaires et revue avant validation.</span></div>
+          <div><strong>Bilan intelligent</strong><span>Checklist des éléments manquants, correction et clôture du cycle.</span></div>
+          <div><strong>Documents & exports</strong><span>PDF pédagogiques et export préparé pour la copie vers Massar.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section references-section" id="references">
+    <div class="shell">
+      <div class="section-head reveal">
+        <span class="eyebrow">Références & rigueur pédagogique</span>
+        <h2>Le numérique au service d’un cadre pédagogique explicite.</h2>
+        <p>EPSIQ ne présente pas ses aides pédagogiques comme des normes officielles. L’application distingue ce qui provient de références marocaines vérifiées, ce qui est dérivé pour faciliter l’observation ou l’organisation, et ce qui reste une proposition modifiable à valider par l’enseignant.</p>
+        <p class="reference-highlight"><strong>Pour l’évaluation :</strong> EPSIQ respecte les grilles, critères, barèmes et modalités de notation officiels vérifiés qui ont été intégrés, conformément au niveau, à l’activité et au cadre pédagogique applicable.</p>
+      </div>
+
+      <div class="reference-grid">
+        <article class="reference-card reveal">
+          <span class="reference-tag">Maroc</span>
+          <h3>OP 2009, OP 2007 et textes de référence</h3>
+          <p>La conception pédagogique d’EPSIQ s’appuie notamment sur les orientations pédagogiques de l’EPS du secondaire collégial <strong>(OP 2009)</strong> et du secondaire qualifiant <strong>(OP 2007)</strong>, ainsi que sur les objectifs, textes et notes organisatrices intégrés après vérification. Lorsqu’un contenu est présenté comme officiel, il est identifié et protégé comme tel.</p>
+        </article>
+
+        <article class="reference-card reveal reveal-delay-1">
+          <span class="reference-tag">Évaluation</span>
+          <h3>Évaluation alignée sur les références officielles vérifiées</h3>
+          <p>Les modules d’évaluation d’EPSIQ utilisent les <strong>grilles, critères, barèmes et modalités de notation officiels vérifiés</strong> lorsqu’ils sont disponibles et intégrés dans le corpus de référence. Les valeurs officielles ne sont ni inventées ni librement modifiées ; les critères adaptés ou dérivés restent clairement distingués.</p>
+        </article>
+
+        <article class="reference-card reveal reveal-delay-2">
+          <span class="reference-tag">International</span>
+          <h3>Une veille ouverte sur les pratiques internationales</h3>
+          <p>EPSIQ enrichit sa conception par une veille sur des références et pratiques internationales en EPS, didactique, évaluation et outils numériques éducatifs. Ces apports servent à comparer, inspirer et améliorer l’expérience, sans remplacer les références marocaines applicables.</p>
+        </article>
+
+        <article class="reference-card reveal">
+          <span class="reference-tag">Transparence</span>
+          <h3>Officiel, dérivé ou proposé : toujours distingué</h3>
+          <p>Un objectif officiel reste protégé. Une synthèse diagnostique ou un critère adapté est présenté comme dérivé. Une situation, une organisation ou une suggestion générée reste une proposition pédagogique modifiable dont la validation finale appartient à l’enseignant.</p>
+        </article>
+      </div>
+
+      <div class="reference-note reveal">
+        <strong>Principe EPSIQ :</strong>
+        <span>respecter le cadre officiel marocain, notamment OP 2009 et OP 2007, évaluer selon les grilles et barèmes officiels vérifiés intégrés, documenter les sources utiles et ne jamais transformer une aide pédagogique en valeur officielle par simple génération.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="workflow section" id="workflow">
+    <div class="shell">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Le parcours EPSIQ</span>
+        <h2>Du premier diagnostic au bilan final.</h2>
+        <p>Une continuité pédagogique lisible, de la préparation au terrain puis à l’évaluation.</p>
+      </div>
+      <div class="steps">
+        <article class="step reveal"><span class="step-num">01</span><div class="android-shot"><img src="assets/116997.webp" alt="Planification et gestion des cycles"></div><h3>Planifier</h3><p>Organiser les cycles et retrouver immédiatement le contexte de classe.</p></article>
+        <article class="step reveal reveal-delay-1"><span class="step-num">02</span><div class="android-shot"><img src="assets/117005.webp" alt="Fiche diagnostique S1"></div><h3>Diagnostiquer</h3><p>Préparer S1, observer, puis exploiter le diagnostic pour orienter le cycle.</p></article>
+        <article class="step reveal reveal-delay-2"><span class="step-num">03</span><div class="android-shot"><img src="assets/117001.webp" alt="Projet du cycle"></div><h3>Construire le projet</h3><p>Transformer les constats en priorités et propositions pédagogiques modifiables.</p></article>
+        <article class="step reveal"><span class="step-num">04</span><div class="android-shot"><img src="assets/117004.webp" alt="Fiche de séance complète"></div><h3>Préparer les séances</h3><p>Objectif, matériel, phases, évaluation et observations dans une fiche structurée.</p></article>
+        <article class="step reveal reveal-delay-1"><span class="step-num">05</span><div class="android-shot"><img src="assets/117000.webp" alt="Suivi terrain des élèves"></div><h3>Suivre sur le terrain</h3><p>Présence, retard, tenue et observations individuelles avec des contrôles lisibles.</p></article>
+        <article class="step reveal reveal-delay-2"><span class="step-num">06</span><div class="android-shot"><img src="assets/117008.webp" alt="Bilan EPSIQ avec résultats et exports"></div><h3>Évaluer & clôturer</h3><p>Réviser les résultats, clôturer le cycle puis exporter en PDF ou pour copie Massar.</p></article>
+      </div>
+      <div class="workflow-mobile-nav" aria-live="polite" aria-label="Progression du parcours EPSIQ">
+        <span class="workflow-swipe-hint">Glissez pour parcourir</span>
+        <strong><span class="workflow-current">1</span> / 6</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="terrain section" id="terrain">
+    <div class="shell terrain-grid">
+      <div class="terrain-copy reveal">
+        <span class="eyebrow eyebrow-light">Conçu pour le terrain</span>
+        <h2>Une interface qui reste utile quand le cours commence.</h2>
+        <p>EPSIQ privilégie des actions simples, une lecture forte et un suivi rapide. Le numérique accompagne l’enseignant sans prendre la place de l’enseignement.</p>
+        <div class="feature-pills"><span>Grandes zones tactiles</span><span>Contrastes lisibles</span><span>Suivi élève rapide</span><span>Contexte de classe visible</span></div>
+      </div>
+      <div class="terrain-visual reveal reveal-delay-1">
+        <div class="phone android-phone terrain-phone"><img src="assets/117000.webp" alt="Suivi de quatre élèves dans EPSIQ"></div>
+        <div class="terrain-callout"><strong>Le terrain d’abord.</strong><span>Le numérique accompagne.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results section">
+    <div class="shell results-grid">
+      <div class="results-visual reveal">
+        <div class="phone android-phone result-back"><img src="assets/117007.webp" alt="Cycle prêt à 100%"></div>
+        <div class="phone android-phone result-front"><img src="assets/117008.webp" alt="Résultats et export Massar"></div>
+      </div>
+      <div class="results-copy reveal reveal-delay-1">
+        <span class="eyebrow">Une fin de cycle maîtrisée</span>
+        <h2>Vérifier, corriger, exporter.</h2>
+        <p>Le bilan agit comme une checklist intelligente : il montre ce qui est terminé, ce qui manque et ce qui est prêt pour l’export.</p>
+        <ul class="check-list"><li>Diagnostic S1</li><li>Suivi des séances</li><li>Évaluation motrice</li><li>Résultats /20</li><li>PDF et copie Massar</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="principles" aria-label="Principes d’EPSIQ">
+    <div class="shell principle-grid">
+      <article><span>◎</span><h3>Teacher-first</h3><p>Une action principale, l’état courant et la prochaine étape restent lisibles.</p></article>
+      <article><span>↗</span><h3>Hors connexion d’abord</h3><p>Le cœur du travail pédagogique est conçu pour rester utilisable sur le terrain sans dépendre d’une connexion permanente.</p></article>
+      <article><span>▣</span><h3>Données sous contrôle</h3><p>Le fonctionnement actuel est centré sur les données de travail conservées localement sur l’appareil.</p></article>
+      <article><span>✓</span><h3>Références traçables</h3><p>Textes, objectifs, grilles et barèmes officiels vérifiés restent distincts des contenus dérivés ou proposés.</p></article>
+    </div>
+  </section>
+
+  <section class="transparency section">
+    <div class="shell transparency-card reveal">
+      <div>
+        <span class="eyebrow">Clair sur ce qu’est EPSIQ</span>
+        <h2>Un outil professionnel indépendant.</h2>
+      </div>
+      <div class="transparency-points">
+        <p><strong>EPSIQ accompagne, il ne remplace pas l’enseignant.</strong> Les décisions pédagogiques finales restent sous la responsabilité du professeur.</p>
+        <p><strong>EPSIQ n’est ni une application officielle ni une homologation du ministère.</strong> Sa conception cherche à respecter les orientations pédagogiques, textes organisateurs, objectifs, grilles et barèmes officiels vérifiés lorsqu’ils sont intégrés, sans attribuer un statut officiel aux contenus adaptés ou générés.</p>
+        <p><strong>Massar reste distinct d’EPSIQ.</strong> Les exports servent à préparer le travail de copie ou de transfert selon les formats pris en charge.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="subscription section" id="abonnement">
+    <div class="shell subscription-card reveal">
+      <div>
+        <span class="eyebrow eyebrow-light">Accès annuel</span>
+        <h2>Continuez avec tous vos cycles.</h2>
+        <p>Après la première expérience, activez votre accès annuel pour poursuivre votre travail avec EPSIQ.</p>
+        <div class="download-actions">
+          <a class="btn btn-primary btn-lg" href="https://wa.me/212637594365?text=Bonjour%2C%20je%20souhaite%20activer%20mon%20acc%C3%A8s%20annuel%20EPSIQ.%20Pouvez-vous%20m%E2%80%99indiquer%20la%20proc%C3%A9dure%20%3F" target="_blank" rel="noopener">Activer via WhatsApp</a>
+        </div>
+      </div>
+      <div class="subscription-side">
+        <span class="status-chip">Activation annuelle disponible</span>
+        <p>Une question avant l’activation ? Contactez EPSIQ directement.</p>
+        <a class="btn btn-light" href="#support">Besoin d’aide ?</a>
+      </div>
+    </div>
+  </section>
+
+
+<section class="resources-home section" id="ressources">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="eyebrow">Ressources pédagogiques gratuites</span>
+      <h2>Des outils utiles, prêts à imprimer.</h2>
+      <p>EPSIQ met aussi à disposition des ressources pratiques et gratuites pour les enseignants d’EPS, prêtes à télécharger et à utiliser sur le terrain.</p>
+    </div>
+    <article class="resource-feature-card reveal">
+      <div class="resource-feature-cover">
+        <img src="assets/resources/cahier-controle-evaluation-2026-2027-cover.webp" alt="Couverture du Cahier de contrôle et d’évaluation EPS 2026/2027 proposé gratuitement par EPSIQ" loading="lazy">
+      </div>
+      <div class="resource-feature-copy">
+        <div class="resource-badge-row"><span class="resource-badge">PDF gratuit</span><span class="resource-badge neutral">4 pages</span><span class="resource-badge neutral">2026/2027</span></div>
+        <h3>Cahier de contrôle et d’évaluation EPS 2026/2027</h3>
+        <p>Un support imprimable pour organiser l’année, suivre les élèves et conserver une vue synthétique des cycles réalisés.</p>
+        <ul class="resource-feature-list">
+          <li>Organisation et programmation annuelles</li>
+          <li>Contrôle et évaluation jusqu’à 42 élèves</li>
+          <li>Trois cycles / APSA sur une même grille</li>
+          <li>Bilan annuel et perspectives</li>
+        </ul>
+        <div class="resource-feature-actions">
+          <a class="btn btn-primary" href="/ressources/cahier-de-controle-et-devaluation-eps-2026-2027/">Découvrir la ressource</a>
+          <a class="btn btn-ghost" href="/downloads/cahier-de-controle-et-devaluation-eps-2026-2027-epsiq.pdf" download>Télécharger le PDF</a>
+        </div>
+      </div>
+    </article>
+    <article class="resource-feature-card reveal" style="margin-top:28px">
+      <div class="resource-feature-cover">
+        <img src="assets/resources/cahier-textes-college-2026-2027-cover.webp" alt="Couverture du Cahier de textes EPS 2026/2027 proposé gratuitement par EPSIQ" loading="lazy">
+      </div>
+      <div class="resource-feature-copy">
+        <div class="resource-badge-row"><span class="resource-badge">PDF gratuit</span><span class="resource-badge neutral">Collège + Lycée</span><span class="resource-badge neutral">2026/2027</span></div>
+        <h3>Cahier de textes EPS 2026/2027</h3>
+        <p>Un cahier prêt à imprimer pour consigner les séances d’EPS, proposé en deux versions adaptées au Collège et au Lycée.</p>
+        <ul class="resource-feature-list">
+          <li>Version Collège · 1AC · 2AC · 3AC</li>
+          <li>Version Lycée · TC · 1BAC · 2BAC</li>
+          <li>Organisation par APSA et séances</li>
+          <li>Deux PDF gratuits prêts à imprimer</li>
+        </ul>
+        <div class="resource-feature-actions">
+          <a class="btn btn-primary" href="/ressources/cahier-de-textes-eps-2026-2027/">Découvrir la ressource</a>
+          <a class="btn btn-ghost" href="/downloads/cahier-de-textes-eps-college-2026-2027-epsiq.pdf" download>PDF Collège</a>
+          <a class="btn btn-ghost" href="/downloads/cahier-de-textes-eps-lycee-2026-2027-epsiq.pdf" download>PDF Lycée</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+  <section class="faq section" id="faq">
+    <div class="shell compact-shell">
+      <div class="section-head reveal">
+        <span class="eyebrow">Questions fréquentes</span>
+        <h2>Ce qu’il faut savoir avant de commencer.</h2>
+      </div>
+      <div class="faq-list">
+        <details open><summary>À qui s’adresse EPSIQ aujourd’hui ?</summary><p>La version actuelle est conçue pour les enseignants d’EPS du secondaire collégial et qualifiant au Maroc : 1AC, 2AC, 3AC, Tronc commun, 1BAC et 2BAC. L’application est disponible sur Android.</p></details>
+        <details><summary>EPSIQ fonctionne-t-il sans Internet ?</summary><p>Le cœur des fonctions de préparation, suivi et évaluation est conçu pour un usage local et hors connexion sur le terrain. Une connexion peut être nécessaire pour des services externes ou de futures fonctions en ligne.</p></details>
+        <details><summary>Où sont enregistrées mes données ?</summary><p>Dans le fonctionnement actuel, les données pédagogiques de travail sont principalement conservées localement sur l’appareil. La politique de confidentialité sera mise à jour avant toute évolution importante impliquant des services en ligne.</p></details>
+        <details><summary>EPSIQ remplace-t-il Massar ?</summary><p>Non. EPSIQ aide l’enseignant à préparer, suivre, évaluer et organiser les résultats. Les fonctions d’export facilitent ensuite la copie ou le transfert vers les outils institutionnels selon les formats pris en charge.</p></details>
+        <details><summary>Les objectifs et propositions sont-ils officiels ?</summary><p>Lorsqu’une référence officielle est intégrée et vérifiée, elle est protégée et clairement distinguée. Les contenus générés ou adaptés pour aider à la préparation restent des propositions pédagogiques modifiables à vérifier par l’enseignant.</p></details>
+        <details><summary>Sur quelles références pédagogiques EPSIQ s’appuie-t-il ?</summary><p>EPSIQ s’appuie notamment, lorsque les sources ont été vérifiées et intégrées, sur les orientations pédagogiques de l’EPS du secondaire collégial <strong>(OP 2009)</strong> et du secondaire qualifiant <strong>(OP 2007)</strong>, ainsi que sur les objectifs, textes, notes organisatrices, grilles d’observation et barèmes d’évaluation applicables. La conception est également enrichie par une veille sur des références et pratiques internationales du domaine, utilisées comme sources d’inspiration et de comparaison, jamais comme normes officielles marocaines.</p></details>
+        <details><summary>EPSIQ respecte-t-il les grilles officielles d’évaluation ?</summary><p>Oui. Lorsque les grilles, critères, barèmes et modalités de notation officiels ont été vérifiés et intégrés, EPSIQ les utilise comme références protégées pour l’évaluation. Les contenus pédagogiques adaptés, dérivés ou proposés restent distincts et ne sont jamais présentés comme des valeurs officielles.</p></details>
+        <details><summary>EPSIQ est-il gratuit ?</summary><p>EPSIQ permet de découvrir une première expérience complète. Pour poursuivre ensuite avec les cycles suivants, un accès annuel peut être activé. Les modalités d’activation sont communiquées clairement avant toute démarche.</p></details>
+        <details><summary>Quelles langues sont disponibles ?</summary><p>Le site et l’interface d’EPSIQ prennent en charge le français et l’arabe. Lorsque la version arabe validée d’un contenu pédagogique n’est pas disponible, EPSIQ peut conserver le contenu source français en l’indiquant clairement plutôt que d’inventer une traduction.</p></details>
+        <details><summary>Comment recevoir les mises à jour d’EPSIQ ?</summary><p>EPSIQ vérifie les nouvelles versions et vous indique lorsqu’une mise à jour est disponible. Le téléchargement s’effectue depuis le canal officiel EPSIQ et l’installation reste sous votre contrôle.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="download section" id="download">
+    <div class="shell download-grid">
+      <div class="download-brand reveal"><img src="assets/logo-full.webp" alt="EPSIQ — Le copilote intelligent de l’enseignant d’EPS"></div>
+      <div class="download-copy reveal reveal-delay-1">
+        <span class="eyebrow">EPSIQ pour Android</span>
+        <h2>Prêt à simplifier votre prochaine séance ?</h2>
+        <p>EPSIQ 2.0.1 est disponible sur Android pour les enseignants d’EPS du Collège et du Lycée au Maroc.</p>
+        <p class="release-trust">Version 2.0.1 · Android 7.0+ · Collège + Lycée · Téléchargement officiel</p>
+        <div class="download-actions">
+          <a class="btn btn-primary btn-lg" href="https://github.com/BAYAYEPS/EPSIQ-WEBSITE/releases/download/v2.0.1/EPSIQ-2.0.1.apk">Télécharger EPSIQ 2.0.1</a>
+          <a class="btn btn-ghost btn-lg" href="#support">Besoin d’aide ?</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="support" id="support">
+    <div class="shell support-grid">
+      <div><span class="eyebrow">Support</span><h2>Une question sur EPSIQ ?</h2><p>Installation, fonctionnement, retours de terrain ou signalement d’un problème : contactez-nous.</p></div>
+      <div class="support-links"><a href="mailto:epsiqmaroc@gmail.com">epsiqmaroc@gmail.com</a><a href="https://www.facebook.com/EPSIQMaroc/" rel="noopener" target="_blank">@EPSIQMaroc</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand"><img src="assets/logo-mark.webp" alt=""><div><strong>EPSIQ</strong><small>Le copilote intelligent de l’enseignant d’EPS</small></div></div>
+    <nav class="footer-links" aria-label="Liens de pied de page"><a href="#pour-qui">Pour qui</a><a href="#workflow">Parcours</a>
+      <a href="#references">Références</a><a href="#terrain">Terrain</a><a href="#ressources">Ressources</a><a href="#faq">FAQ</a><a href="privacy.html">Confidentialité</a><a href="terms.html">Conditions</a></nav>
+    <div class="footer-legal"><span>© 2026 EPSIQ</span><span><a class="footer-language" href="ar.html" lang="ar" dir="rtl" data-language="ar">العربية</a> · Maroc</span></div>
+  </div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
