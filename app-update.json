@@ -2,7 +2,7 @@
   "channel": "DIRECT",
   "latestVersionCode": 20002,
   "latestVersionName": "2.0.2",
-  "apkUrl": "https://github.com/BAYAYEPS/EPSIQ-WEBSITE/releases/download/v2.0.2/EPSIQ-2.0.2.apk",
+  "apkUrl": "https://epsiq.ma/#download",
   "sha256": "e4fec62b4d513e58c6ea518a0fa7741bcfcee086eb528b2f67f7b12884393fb0",
   "mandatory": false
 }
