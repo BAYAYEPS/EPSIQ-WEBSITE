@@ -4,8 +4,8 @@ Official public website and DIRECT distribution channel for **EPSIQ Maroc**.
 
 ## Current public release
 
-- Version: **2.0.2**
-- Version code: **20002**
+- Version: **2.0.3**
+- Version code: **20003**
 - Android: **7.0+**
 - Scope: **Collège + Lycée**
 - Levels: **1AC, 2AC, 3AC, TC, 1BAC, 2BAC**
@@ -13,11 +13,11 @@ Official public website and DIRECT distribution channel for **EPSIQ Maroc**.
 
 Official APK:
 
-GitHub Releases is the actual APK asset authority. Teachers use the official route: <https://epsiq.ma/#download>.
+The first-party APK asset authority is <https://epsiq.ma/downloads/EPSIQ-2.0.3.apk>. Teachers can also use the official route: <https://epsiq.ma/#download>.
 
 APK SHA-256:
 
-`e4fec62b4d513e58c6ea518a0fa7741bcfcee086eb528b2f67f7b12884393fb0`
+`59361759cc8d4162749c8bad661237b952b6d0fb41ad946e1e1d31bbc7eb22c1`
 
 ## Website
 
