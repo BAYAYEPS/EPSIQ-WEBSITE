@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "families": [
+    { "id": "athletisme", "labels": { "fr": "Athlétisme", "ar": "ألعاب القوى" } }
+  ],
+  "activities": [
+    { "id": "demi-fond", "familyId": "athletisme", "labels": { "fr": "Demi-fond", "ar": "الجري المتوسط" }, "intendedCoverage": ["college:1ac", "college:2ac", "college:3ac", "lycee:tc", "lycee:1bac", "lycee:2bac"] }
+  ],
+  "resources": [
+    {
+      "id": "cahier-de-textes-eps-2026-2027",
+      "scope": "general",
+      "approvedBaseline": "ressources/cahier-de-textes-eps-2026-2027/index.html",
+      "kind": "teaching-logbook",
+      "route": "cahier-de-textes-eps-2026-2027",
+      "availability": [
+        { "phase": "college", "levels": ["1ac", "2ac", "3ac"] },
+        { "phase": "lycee", "levels": ["tc", "1bac", "2bac"] }
+      ],
+      "files": [
+        { "pdf": "/downloads/cahier-de-textes-eps-college-2026-2027-epsiq.pdf", "language": "fr", "pageCount": 28, "label": "college" },
+        { "pdf": "/downloads/cahier-de-textes-eps-lycee-2026-2027-epsiq.pdf", "language": "fr", "pageCount": 28, "label": "lycee" }
+      ],
+      "cover": "/assets/resources/cahier-textes-college-2026-2027-cover.webp",
+      "previews": [
+        "/assets/resources/cahier-textes-college-2026-2027-cover.webp",
+        "/assets/resources/cahier-textes-lycee-2026-2027-cover.webp"
+      ],
+      "editorialStatus": "epsiq-pedagogical-proposal",
+      "published": "2026-09-12",
+      "copy": {
+        "fr": {
+          "title": "Cahier de textes EPS 2026/2027",
+          "metaDescription": "Téléchargez gratuitement le Cahier de textes EPS 2026/2027 proposé par EPSIQ, en deux versions : Collège et Lycée. PDF prêts à imprimer.",
+          "description": "Un support pratique pour consigner les séances d’EPS tout au long de l’année scolaire, disponible en versions Collège et Lycée.",
+          "eyebrow": "Ressource EPS gratuite",
+          "downloadLabel": "Télécharger",
+          "openLabel": "Voir le PDF"
+        },
+        "ar": {
+          "title": "دفتر النصوص EPS 2026/2027",
+          "metaDescription": "حمّل مجاناً دفتر النصوص EPS 2026/2027 من EPSIQ بنسختين: الإعدادي والتأهيلي. ملفات PDF جاهزة للطباعة.",
+          "description": "وثيقة عملية لتسجيل حصص التربية البدنية والرياضية طوال السنة الدراسية، متوفرة بنسختين للإعدادي والتأهيلي.",
+          "eyebrow": "مورد EPS مجاني",
+          "downloadLabel": "تحميل",
+          "openLabel": "معاينة PDF"
+        }
+      }
+    },
+    {
+      "id": "cahier-de-controle-et-devaluation-eps-2026-2027",
+      "scope": "general",
+      "approvedBaseline": "ressources/cahier-de-controle-et-devaluation-eps-2026-2027/index.html",
+      "kind": "assessment-logbook",
+      "route": "cahier-de-controle-et-devaluation-eps-2026-2027",
+      "availability": [
+        { "phase": "college", "levels": ["1ac", "2ac", "3ac"] },
+        { "phase": "lycee", "levels": ["tc", "1bac", "2bac"] }
+      ],
+      "files": [
+        { "pdf": "/downloads/cahier-de-controle-et-devaluation-eps-2026-2027-epsiq.pdf", "language": "fr", "pageCount": 4, "label": "default" }
+      ],
+      "cover": "/assets/resources/cahier-controle-evaluation-2026-2027-cover.webp",
+      "previews": [
+        "/assets/resources/cahier-controle-evaluation-2026-2027-page-1.webp",
+        "/assets/resources/cahier-controle-evaluation-2026-2027-page-2.webp",
+        "/assets/resources/cahier-controle-evaluation-2026-2027-page-3.webp",
+        "/assets/resources/cahier-controle-evaluation-2026-2027-page-4.webp"
+      ],
+      "editorialStatus": "epsiq-pedagogical-proposal",
+      "published": "2026-09-13",
+      "copy": {
+        "fr": {
+          "title": "Cahier de contrôle et d’évaluation EPS 2026/2027",
+          "metaDescription": "Téléchargez gratuitement le Cahier de contrôle et d’évaluation EPS 2026/2027 proposé par EPSIQ : organisation annuelle, programmation APSA, contrôle et évaluation jusqu’à 42 élèves et bilan annuel. PDF de 4 pages prêt à imprimer.",
+          "description": "Un support pratique de 4 pages pour organiser l’année scolaire, suivre les élèves et synthétiser les cycles réalisés.",
+          "eyebrow": "Ressource EPS gratuite",
+          "downloadLabel": "Télécharger gratuitement",
+          "openLabel": "Voir le PDF"
+        },
+        "ar": {
+          "title": "دفتر المراقبة والتقويم EPS 2026/2027",
+          "metaDescription": "حمّل مجاناً دفتر المراقبة والتقويم EPS 2026/2027 من EPSIQ: التنظيم السنوي والتتبع والحصيلة. PDF من 4 صفحات جاهز للطباعة.",
+          "description": "وثيقة عملية من 4 صفحات لتنظيم السنة الدراسية وتتبع التلاميذ وتلخيص الحصص المنجزة.",
+          "eyebrow": "مورد EPS مجاني",
+          "downloadLabel": "تحميل مجاني",
+          "openLabel": "معاينة PDF"
+        }
+      }
+    },
+    {
+      "id": "demi-fond-1ac", "scope": "pedagogical", "kind": "cycle-plan-and-session-sheets", "route": "demi-fond-1ac", "familyId": "athletisme", "activityId": "demi-fond", "publicationState": "available", "availability": [{ "phase": "college", "levels": ["1ac"] }],
+      "files": [{ "pdf": "/downloads/ressources/demi-fond/demi-fond-1ac-projet-cycle-fiches-s01-s10-epsiq.pdf", "language": "fr", "pageCount": 11, "label": "Projet du cycle + Fiches de séances S01–S10" }], "cover": "/assets/resources/demi-fond/demi-fond-1ac-projet-cycle-fiches-s01-s10-epsiq-cover.png", "previews": ["/assets/resources/demi-fond/demi-fond-1ac-projet-cycle-fiches-s01-s10-epsiq-cover.png"], "editorialStatus": "epsiq-pedagogical-proposal", "publicSafety": { "manualReview": "passed" },
+      "copy": { "fr": { "title": "Demi-fond — 1AC", "metaDescription": "Projet du cycle et fiches de séances S01–S10 de demi-fond pour le niveau 1AC.", "description": "Projet du cycle et fiches de séances S01–S10 de demi-fond pour le niveau 1AC.", "eyebrow": "Demi-fond", "downloadLabel": "Télécharger le PDF", "openLabel": "Ouvrir le PDF" }, "ar": { "title": "الجري المتوسط — 1AC", "metaDescription": "مشروع الدورة وبطاقات الحصص S01–S10 للجري المتوسط، مستوى 1AC.", "description": "مشروع الدورة وبطاقات الحصص S01–S10 للجري المتوسط، مستوى 1AC.", "eyebrow": "الجري المتوسط", "downloadLabel": "تحميل PDF", "openLabel": "فتح PDF" } }
+    },
+    {
+      "id": "demi-fond-2ac", "scope": "pedagogical", "kind": "cycle-plan-and-session-sheets", "route": "demi-fond-2ac", "familyId": "athletisme", "activityId": "demi-fond", "publicationState": "available", "availability": [{ "phase": "college", "levels": ["2ac"] }],
+      "files": [{ "pdf": "/downloads/ressources/demi-fond/demi-fond-2ac-projet-cycle-fiches-s01-s10-epsiq.pdf", "language": "fr", "pageCount": 11, "label": "Projet du cycle + Fiches de séances S01–S10" }], "cover": "/assets/resources/demi-fond/demi-fond-2ac-projet-cycle-fiches-s01-s10-epsiq-cover.png", "previews": ["/assets/resources/demi-fond/demi-fond-2ac-projet-cycle-fiches-s01-s10-epsiq-cover.png"], "editorialStatus": "epsiq-pedagogical-proposal", "publicSafety": { "manualReview": "passed" },
+      "copy": { "fr": { "title": "Demi-fond — 2AC", "metaDescription": "Projet du cycle et fiches de séances S01–S10 de demi-fond pour le niveau 2AC.", "description": "Projet du cycle et fiches de séances S01–S10 de demi-fond pour le niveau 2AC.", "eyebrow": "Demi-fond", "downloadLabel": "Télécharger le PDF", "openLabel": "Ouvrir le PDF" }, "ar": { "title": "الجري المتوسط — 2AC", "metaDescription": "مشروع الدورة وبطاقات الحصص S01–S10 للجري المتوسط، مستوى 2AC.", "description": "مشروع الدورة وبطاقات الحصص S01–S10 للجري المتوسط، مستوى 2AC.", "eyebrow": "الجري المتوسط", "downloadLabel": "تحميل PDF", "openLabel": "فتح PDF" } }
+    },
+    {
+      "id": "demi-fond-3ac", "scope": "pedagogical", "kind": "cycle-plan-and-session-sheets", "route": "demi-fond-3ac", "familyId": "athletisme", "activityId": "demi-fond", "publicationState": "available", "availability": [{ "phase": "college", "levels": ["3ac"] }],
+      "files": [{ "pdf": "/downloads/ressources/demi-fond/demi-fond-3ac-projet-cycle-fiches-s01-s10-epsiq.pdf", "language": "fr", "pageCount": 11, "label": "Projet du cycle + Fiches de séances S01–S10" }], "cover": "/assets/resources/demi-fond/demi-fond-3ac-projet-cycle-fiches-s01-s10-epsiq-cover.png", "previews": ["/assets/resources/demi-fond/demi-fond-3ac-projet-cycle-fiches-s01-s10-epsiq-cover.png"], "editorialStatus": "epsiq-pedagogical-proposal", "publicSafety": { "manualReview": "passed" },
+      "copy": { "fr": { "title": "Demi-fond — 3AC", "metaDescription": "Projet du cycle et fiches de séances S01–S10 de demi-fond pour le niveau 3AC.", "description": "Projet du cycle et fiches de séances S01–S10 de demi-fond pour le niveau 3AC.", "eyebrow": "Demi-fond", "downloadLabel": "Télécharger le PDF", "openLabel": "Ouvrir le PDF" }, "ar": { "title": "الجري المتوسط — 3AC", "metaDescription": "مشروع الدورة وبطاقات الحصص S01–S10 للجري المتوسط، مستوى 3AC.", "description": "مشروع الدورة وبطاقات الحصص S01–S10 للجري المتوسط، مستوى 3AC.", "eyebrow": "الجري المتوسط", "downloadLabel": "تحميل PDF", "openLabel": "فتح PDF" } }
+    },
+    {
+      "id": "demi-fond-tc", "scope": "pedagogical", "kind": "cycle-plan-and-session-sheets", "route": "demi-fond-tc", "familyId": "athletisme", "activityId": "demi-fond", "publicationState": "available", "availability": [{ "phase": "lycee", "levels": ["tc"] }],
+      "files": [{ "pdf": "/downloads/ressources/demi-fond/demi-fond-tc-projet-cycle-fiches-s01-s10-epsiq.pdf", "language": "fr", "pageCount": 11, "label": "Projet du cycle + Fiches de séances S01–S10" }], "cover": "/assets/resources/demi-fond/demi-fond-tc-projet-cycle-fiches-s01-s10-epsiq-cover.png", "previews": ["/assets/resources/demi-fond/demi-fond-tc-projet-cycle-fiches-s01-s10-epsiq-cover.png"], "editorialStatus": "epsiq-pedagogical-proposal", "publicSafety": { "manualReview": "passed" },
+      "copy": { "fr": { "title": "Demi-fond — TC", "metaDescription": "Projet du cycle et fiches de séances S01–S10 de demi-fond pour le niveau TC.", "description": "Projet du cycle et fiches de séances S01–S10 de demi-fond pour le niveau TC.", "eyebrow": "Demi-fond", "downloadLabel": "Télécharger le PDF", "openLabel": "Ouvrir le PDF" }, "ar": { "title": "الجري المتوسط — TC", "metaDescription": "مشروع الدورة وبطاقات الحصص S01–S10 للجري المتوسط، مستوى TC.", "description": "مشروع الدورة وبطاقات الحصص S01–S10 للجري المتوسط، مستوى TC.", "eyebrow": "الجري المتوسط", "downloadLabel": "تحميل PDF", "openLabel": "فتح PDF" } }
+    },
+    {
+      "id": "demi-fond-1bac", "scope": "pedagogical", "kind": "cycle-plan-and-session-sheets", "route": "demi-fond-1bac", "familyId": "athletisme", "activityId": "demi-fond", "publicationState": "available", "availability": [{ "phase": "lycee", "levels": ["1bac"] }],
+      "files": [{ "pdf": "/downloads/ressources/demi-fond/demi-fond-1bac-projet-cycle-fiches-s01-s10-epsiq.pdf", "language": "fr", "pageCount": 11, "label": "Projet du cycle + Fiches de séances S01–S10" }], "cover": "/assets/resources/demi-fond/demi-fond-1bac-projet-cycle-fiches-s01-s10-epsiq-cover.png", "previews": ["/assets/resources/demi-fond/demi-fond-1bac-projet-cycle-fiches-s01-s10-epsiq-cover.png"], "editorialStatus": "epsiq-pedagogical-proposal", "publicSafety": { "manualReview": "passed" },
+      "copy": { "fr": { "title": "Demi-fond — 1BAC", "metaDescription": "Projet du cycle et fiches de séances S01–S10 de demi-fond pour le niveau 1BAC.", "description": "Projet du cycle et fiches de séances S01–S10 de demi-fond pour le niveau 1BAC.", "eyebrow": "Demi-fond", "downloadLabel": "Télécharger le PDF", "openLabel": "Ouvrir le PDF" }, "ar": { "title": "الجري المتوسط — 1BAC", "metaDescription": "مشروع الدورة وبطاقات الحصص S01–S10 للجري المتوسط، مستوى 1BAC.", "description": "مشروع الدورة وبطاقات الحصص S01–S10 للجري المتوسط، مستوى 1BAC.", "eyebrow": "الجري المتوسط", "downloadLabel": "تحميل PDF", "openLabel": "فتح PDF" } }
+    },
+    {
+      "id": "demi-fond-2bac", "scope": "pedagogical", "kind": "cycle-plan-and-session-sheets", "route": "demi-fond-2bac", "familyId": "athletisme", "activityId": "demi-fond", "publicationState": "available", "availability": [{ "phase": "lycee", "levels": ["2bac"] }],
+      "files": [{ "pdf": "/downloads/ressources/demi-fond/demi-fond-2bac-projet-cycle-fiches-s01-s10-epsiq.pdf", "language": "fr", "pageCount": 11, "label": "Projet du cycle + Fiches de séances S01–S10" }], "cover": "/assets/resources/demi-fond/demi-fond-2bac-projet-cycle-fiches-s01-s10-epsiq-cover.png", "previews": ["/assets/resources/demi-fond/demi-fond-2bac-projet-cycle-fiches-s01-s10-epsiq-cover.png"], "editorialStatus": "epsiq-pedagogical-proposal", "publicSafety": { "manualReview": "passed" },
+      "copy": { "fr": { "title": "Demi-fond — 2BAC", "metaDescription": "Projet du cycle et fiches de séances S01–S10 de demi-fond pour le niveau 2BAC.", "description": "Projet du cycle et fiches de séances S01–S10 de demi-fond pour le niveau 2BAC.", "eyebrow": "Demi-fond", "downloadLabel": "Télécharger le PDF", "openLabel": "Ouvrir le PDF" }, "ar": { "title": "الجري المتوسط — 2BAC", "metaDescription": "مشروع الدورة وبطاقات الحصص S01–S10 للجري المتوسط، مستوى 2BAC.", "description": "مشروع الدورة وبطاقات الحصص S01–S10 للجري المتوسط، مستوى 2BAC.", "eyebrow": "الجري المتوسط", "downloadLabel": "تحميل PDF", "openLabel": "فتح PDF" } }
+    }
+  ]
+}
