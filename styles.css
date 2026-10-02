@@ -572,3 +572,58 @@ body{
 
 /* Home conversion: a concise library handoff, without duplicating the hub. */
 .resources-home .resource-feature-card{display:none}.home-resource-teaser{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:22px}.home-resource-teaser span{padding:8px 11px;border:1px solid #d3e5dc;border-radius:999px;background:#fff;color:var(--green);font-size:12px;font-weight:800}.home-resource-teaser .btn{margin-left:auto}.rtl-site .home-resource-teaser .btn{margin-left:0;margin-right:auto}.download .download-brand{display:none}.download .download-grid{grid-template-columns:1fr;max-width:780px}.download .download-copy{margin:auto;text-align:center}.download .download-actions{justify-content:center}@media(max-width:620px){.home-resource-teaser{align-items:stretch}.home-resource-teaser span{text-align:center}.home-resource-teaser .btn,.rtl-site .home-resource-teaser .btn{width:100%;margin:4px 0 0}.download .download-copy{text-align:start}.rtl-site .download .download-copy{text-align:right}.download .download-actions .btn{width:100%}}
+
+/* Shared desktop system: centered breadth, controlled reading measure, and useful grids. */
+@media(min-width:1024px){
+  .shell{width:min(100% - 72px,1240px)}
+  .compact-shell{max-width:980px}
+  .site-header .nav-shell{height:72px;gap:24px}
+  .brand{min-width:280px}
+  .nav{gap:22px}
+  .nav a{font-size:13px}
+  .page-hero,.library-hero{padding-block:64px 46px}
+  .page-hero> .shell>p,.library-hero p,.section-head p{max-width:720px}
+  .page-section{padding-block:64px}
+  .section{padding-block:82px}
+  .section-head{margin-bottom:32px}
+  .hero-grid{grid-template-columns:minmax(0,.95fr) minmax(430px,.85fr);gap:58px}
+  .hero-copy,.hero-lead{max-width:610px}
+  .hero-visual{max-width:560px;justify-self:end;width:100%}
+  .audience-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .scope-card{max-width:1180px;margin-inline:auto}
+  .workflow .steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .workflow .step{padding:15px}
+  .workflow .step .android-shot{height:290px}
+  .resources-home .shell{max-width:1080px}
+  .home-resource-teaser{max-width:900px}
+  .download .download-grid{max-width:880px}
+  .product-visual{grid-template-columns:minmax(290px,.72fr) minmax(0,1.28fr);max-width:1040px;margin-inline:auto;padding:34px 42px}
+  .product-visual>div:last-child{max-width:620px}
+  .page-grid.compact-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .page-grid.compact-cards .page-card{min-height:150px}
+  .library-section{padding-block:56px}
+  .document-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .document-card{padding:20px;gap:20px}
+  .collection-card{width:min(100%,980px)}
+  .hierarchy-page .library-hero{padding-block:50px 34px}
+  .hierarchy-page .library-section{padding-block:30px 26px}
+  .hierarchy-page .library-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1040px;margin-inline:auto}
+  .hierarchy-page .library-grid:has(.level-document){grid-template-columns:1fr;max-width:1180px}
+  .hierarchy-page .level-document{grid-template-columns:minmax(0,.62fr) minmax(0,1fr);max-width:1180px;padding:30px 34px;gap:34px}
+  .hierarchy-page .level-preview{max-width:none;align-self:stretch}
+  .hierarchy-page .level-preview img{height:100%;min-height:470px;aspect-ratio:auto;object-fit:cover;object-position:top}
+  .hierarchy-page .document-copy{max-width:440px;align-self:center}
+  .hierarchy-page .resource-cta-row{display:flex;gap:10px}
+  .hierarchy-page .resource-content{padding-bottom:34px}
+  .rtl-site .hierarchy-page .level-document{grid-template-columns:minmax(0,1fr) minmax(0,.62fr)}
+  .rtl-site .hierarchy-page .document-copy{justify-self:end}
+  .footer{padding-block:30px}
+}
+@media(min-width:1280px){
+  .shell{width:min(100% - 96px,1240px)}
+  .hero-visual{max-width:600px}
+  .section{padding-block:88px}
+  .page-section{padding-block:70px}
+  .hierarchy-page .level-document{max-width:1220px;grid-template-columns:minmax(0,.58fr) minmax(0,1fr)}
+  .hierarchy-page .level-preview img{min-height:520px}
+}
