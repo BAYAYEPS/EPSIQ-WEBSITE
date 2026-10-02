@@ -74,9 +74,14 @@ for (const resource of catalog.resources.filter(r => r.approvedBaseline)) for (c
   let approved;
   try { approved = execFileSync('git', ['show', `${base}:${route}`], { encoding: 'utf8' }); }
   catch (error) { if (typeof error.stdout === 'string' && error.stdout) approved = error.stdout; else throw error; }
-  if (html !== approved) throw new Error(`approved semantic baseline changed: ${route}`);
+  const withoutHeader = value => value.replace(/<header class="site-header"[^>]*>.*?<\/header>/s, '<header-shell>');
+  if (withoutHeader(html) !== withoutHeader(approved)) throw new Error(`approved resource content changed outside navigation shell: ${route}`);
+  const expectedNavigation = lang === 'ar'
+    ? ['href="/ar.html"', 'href="/ar/application/"', 'href="/ar/ressources/"', 'href="/ar/fonctionnalites/"', 'href="/ar/a-propos/"', 'href="/ar/support/"']
+    : ['href="/"', 'href="/application/"', 'href="/ressources/"', 'href="/fonctionnalites/"', 'href="/a-propos/"', 'href="/support/"'];
+  for (const href of expectedNavigation) if (!html.includes(href)) throw new Error(`missing current navigation link ${href}: ${route}`);
   for (const token of ['<title>', 'name="description"', 'property="og:title"', 'property="og:description"', 'rel="canonical"', 'hreflang="fr"', 'hreflang="ar"', 'hreflang="x-default"', 'application/ld+json', '<h1', 'href="/styles.css"', 'src="/script.js"']) if (!html.includes(token)) throw new Error(`missing semantic invariant ${token}: ${route}`);
   if ((html.match(/<h1[ >]/g) || []).length !== 1) throw new Error(`H1 count mismatch: ${route}`);
   if (lang === 'ar' && (!html.includes('lang="ar"') || !html.includes('dir="rtl"'))) throw new Error(`Arabic RTL mismatch: ${route}`);
-  console.log(`ok approved parity ${route}`);
+  console.log(`ok approved resource semantic parity and navigation ${route}`);
 }

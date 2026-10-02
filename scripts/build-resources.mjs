@@ -20,6 +20,15 @@ function approvedPage(sourcePath) {
   try { return execFileSync('git', ['show', `${approvedBase}:${sourcePath}`], { cwd: root, encoding: 'utf8' }); }
   catch (error) { if (typeof error.stdout === 'string' && error.stdout) return error.stdout; throw error; }
 }
+function modernizeApprovedNavigation(source, lang) {
+  const ar = lang === 'ar';
+  const navigation = ar
+    ? '<nav class="nav" aria-label="التنقل الرئيسي"><a href="/ar.html">الرئيسية</a><a href="/ar/application/">التطبيق</a><a href="/ar/ressources/" aria-current="page">الموارد</a><a href="/ar/fonctionnalites/">الوظائف</a><a href="/ar/a-propos/">حول EPSIQ</a><a href="/ar/support/">الدعم</a></nav>'
+    : '<nav class="nav" aria-label="Navigation principale"><a href="/">Accueil</a><a href="/application/">Application</a><a href="/ressources/" aria-current="page">Ressources</a><a href="/fonctionnalites/">Fonctionnalités</a><a href="/a-propos/">À propos</a><a href="/support/">Support</a></nav>';
+  const updated = source.replace(/<nav class="nav"[^>]*>.*?<\/nav>/s, navigation);
+  if (updated === source) fail(`could not update approved navigation shell: ${lang}`);
+  return updated;
+}
 function esc(value = '') { return String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 function json(value) { return JSON.stringify(value).replace(/</g, '\\u003c'); }
 function routeFor(resource, lang) { return `${lang === 'ar' ? 'ar/' : ''}ressources/${resource.route}/`; }
@@ -115,7 +124,7 @@ function labels(lang, resource) {
 }
 function header(lang, other) {
   const ar = lang === 'ar'; const home = ar ? '/ar.html' : '/';
-  return `<a class="skip-link" href="#main">${ar ? 'الانتقال إلى المحتوى' : 'Aller au contenu'}</a><header class="site-header" id="top"><div class="shell nav-shell"><a class="brand" href="${home}" aria-label="EPSIQ"><img class="brand-logo" src="/assets/logo-mark.webp" alt=""><span><strong>EPSIQ</strong><small>${ar ? 'المساعد الذكي لأستاذ التربية البدنية والرياضية' : 'Le copilote intelligent de l’enseignant d’EPS'}</small></span></a><button class="menu-toggle" aria-label="${ar ? 'فتح القائمة' : 'Ouvrir le menu'}" aria-expanded="false">☰</button><nav class="nav" aria-label="${ar ? 'التنقل الرئيسي' : 'Navigation principale'}"><a href="${home}">${ar ? 'الرئيسية' : 'Accueil'}</a><a href="${home}#ressources">${ar ? 'الموارد' : 'Ressources'}</a><a href="${home}#workflow">${ar ? 'التطبيق' : 'Application'}</a><a href="${home}#support">Support</a></nav><div class="language-switch">${ar ? `<a href="/${other}" lang="fr" dir="ltr">FR</a><span>|</span><span class="language-current">العربية</span>` : `<span class="language-current">FR</span><span>|</span><a href="/${other}" lang="ar" dir="rtl">العربية</a>`}</div></div></header>`;
+  return `<a class="skip-link" href="#main">${ar ? 'الانتقال إلى المحتوى' : 'Aller au contenu'}</a><header class="site-header" id="top"><div class="shell nav-shell"><a class="brand" href="${home}" aria-label="EPSIQ"><img class="brand-logo" src="/assets/logo-mark.webp" alt=""><span><strong>EPSIQ</strong><small>${ar ? 'المساعد الذكي لأستاذ التربية البدنية والرياضية' : 'Le copilote intelligent de l’enseignant d’EPS'}</small></span></a><button class="menu-toggle" aria-label="${ar ? 'فتح القائمة' : 'Ouvrir le menu'}" aria-expanded="false">☰</button><nav class="nav" aria-label="${ar ? 'التنقل الرئيسي' : 'Navigation principale'}"><a href="${home}">${ar ? 'الرئيسية' : 'Accueil'}</a><a href="${ar ? '/ar/application/' : '/application/'}">${ar ? 'التطبيق' : 'Application'}</a><a href="${ar ? '/ar/ressources/' : '/ressources/'}" aria-current="page">${ar ? 'الموارد' : 'Ressources'}</a><a href="${ar ? '/ar/fonctionnalites/' : '/fonctionnalites/'}">${ar ? 'الوظائف' : 'Fonctionnalités'}</a><a href="${ar ? '/ar/a-propos/' : '/a-propos/'}">${ar ? 'حول EPSIQ' : 'À propos'}</a><a href="${ar ? '/ar/support/' : '/support/'}">${ar ? 'الدعم' : 'Support'}</a></nav><div class="language-switch">${ar ? `<a href="/${other}" lang="fr" dir="ltr">FR</a><span>|</span><span class="language-current">العربية</span>` : `<span class="language-current">FR</span><span>|</span><a href="/${other}" lang="ar" dir="rtl">العربية</a>`}</div></div></header>`;
 }
 function footer(lang, other) { const ar = lang === 'ar'; return `<footer class="footer"><div class="shell footer-grid"><div class="footer-brand"><img src="/assets/logo-mark.webp" alt=""><div><strong>EPSIQ</strong><small>${ar ? 'المساعد الذكي لأستاذ التربية البدنية والرياضية' : 'Le copilote intelligent de l’enseignant d’EPS'}</small></div></div><nav class="footer-links"><a href="${ar ? '/ar.html' : '/'}">${ar ? 'الرئيسية' : 'Accueil'}</a><a href="${ar ? '/ar/ressources/' : '/ressources/'}">${ar ? 'الموارد' : 'Ressources'}</a></nav><div class="footer-legal"><span>© 2026 EPSIQ</span><span><a class="footer-language" href="/${other}">${ar ? 'FR' : 'العربية'}</a> · ${ar ? 'المغرب' : 'Maroc'}</span></div></div></footer>`; }
 function page(resource, lang) {
@@ -143,7 +152,7 @@ export async function build(catalog) {
       // adapter. Their full, separately authored page content remains outside the
       // catalog; the catalog remains the authority for identity/assets/validation.
       const source = resource.approvedBaseline
-        ? approvedPage(lang === 'ar' ? `ar/${resource.approvedBaseline}` : resource.approvedBaseline)
+        ? modernizeApprovedNavigation(approvedPage(lang === 'ar' ? `ar/${resource.approvedBaseline}` : resource.approvedBaseline), lang)
         : page(resource, lang);
       planned.push([target, source]);
     }
