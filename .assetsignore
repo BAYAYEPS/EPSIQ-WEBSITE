@@ -1,0 +1,9 @@
+# Local repository, credentials, and build inputs are not public Worker assets.
+.git/
+.agents/
+.aws/
+.codex/
+source-pdfs/
+docs/
+scripts/
+data/
