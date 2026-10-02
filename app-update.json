@@ -1,8 +1,8 @@
 {
   "channel": "DIRECT",
-  "latestVersionCode": 20004,
-  "latestVersionName": "2.0.4",
+  "latestVersionCode": 20005,
+  "latestVersionName": "2.0.5",
   "apkUrl": "https://epsiq.ma/update/download",
-  "sha256": "7c4c5732198e2c4b087c016c0f4f888162af24ea31d43ee4856eb96b5deaf4fa",
+  "sha256": "988ab14d9a283826722fa6a855c74e7da371eb82dff9e464bb51ba4628d33ee7",
   "mandatory": false
 }
