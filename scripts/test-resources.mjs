@@ -33,7 +33,7 @@ for (const route of ['college/athletisme/demi-fond/1ac', 'college/athletisme/dem
 }
 for (const phase of ['college', 'lycee']) {
   const html = await readFile(new URL(`../ressources/${phase}/athletisme/demi-fond/index.html`, import.meta.url), 'utf8');
-  if (!html.includes('complete')) throw new Error(`real ${phase} coverage is not complete`);
+  if (!html.includes('Collection complète')) throw new Error(`real ${phase} coverage label is not complete`);
 }
 console.log('ok deterministic generation and FR/AR route parity');
 const fixture = structuredClone(catalog); fixture.resources = fixture.resources.filter(r => r.scope === 'general');
@@ -60,8 +60,8 @@ try {
   await renderPedagogicalPages(coverage, coverageRoot);
   const activityHtml = await readFile(path.join(coverageRoot, 'ressources/college/athletisme/demi-fond/index.html'), 'utf8');
   const levelHtml = await readFile(path.join(coverageRoot, 'ressources/college/athletisme/demi-fond/2ac/index.html'), 'utf8');
-  if (!activityHtml.includes('complete') || !activityHtml.includes('3 niveaux')) throw new Error('complete college coverage not derived');
-  if ((levelHtml.match(/class="document-card"/g) || []).length !== 2) throw new Error('multiple resources must list at canonical level URL');
+  if (!activityHtml.includes('Collection complète') || !activityHtml.includes('3 niveaux')) throw new Error('complete college coverage not derived');
+  if ((levelHtml.match(/class="document-card(?:\s|\")/g) || []).length !== 2) throw new Error('multiple resources must list at canonical level URL');
   const snapshot = await readFile(path.join(coverageRoot, 'ressources/college/athletisme/demi-fond/2ac/index.html'), 'utf8');
   await renderPedagogicalPages(coverage, coverageRoot);
   if (snapshot !== await readFile(path.join(coverageRoot, 'ressources/college/athletisme/demi-fond/2ac/index.html'), 'utf8')) throw new Error('hierarchy output is not deterministic');
