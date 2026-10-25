@@ -1,8 +1,8 @@
 {
   "channel": "DIRECT",
-  "latestVersionCode": 30001,
-  "latestVersionName": "3.0.1",
-  "apkUrl": "https://epsiq.ma/downloads/EPSIQ-3.0.1.apk",
-  "sha256": "a76da8d4002cde870029e34e37ea6cb99129fca2a3b70e071a0b106f6945f4f8",
+  "latestVersionCode": 30002,
+  "latestVersionName": "3.0.2",
+  "apkUrl": "https://epsiq.ma/update/download",
+  "sha256": "37058365a5d227d54412ceb32f6560acb659f053fc68b0b32f981d518f7b80ad",
   "mandatory": false
 }
